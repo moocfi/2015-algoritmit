@@ -21,9 +21,9 @@
 			<a id="week-selector-toggle">&#9776;</a>
 			<nav id="week-selector">
 				<ul>
-					{% for site in site.navigation %}
-					<li{% if site[1] == page.url %} class="current"{% endif %}>
-						<a href="{{ site[1] | prepend: site.baseurl }}">{{site[0]}}</a>
+					{% for nav in site.navigation %}
+					<li{% if nav[1] == page.url %} class="current"{% endif %}>
+						<a href="{{ nav[1] | prepend: site.baseurl }}">{{nav[0]}}</a>
 					</li>
 					{% endfor %}
 				</ul>
