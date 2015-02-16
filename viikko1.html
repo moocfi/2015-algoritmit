@@ -1,0 +1,311 @@
+---
+layout: material
+title: Viikko 1
+---
+<div class="exercise"  id="t1">
+
+	<header>
+		<h1>Tehtävä 1</h1>
+	</header>
+
+	<div>
+		<p>Tehtäväsi on tarkistaa, onko merkkijonossa jossain kohdassa kaksi samaa merkkiä peräkkäin.</p>
+
+		<h2>Toteutus</h2>
+
+		<p>Toteuta seuraava metodi:</p>
+
+		<pre><code>boolean kaksiSamaa(String mjono)</code></pre>
+		<p>Parametri mjono on merkkijono, joka muodostuu merkeistä A..Z ja jossa on 1..10<sup>5</sup> merkkiä.</p>
+
+		<p>Metodin tulee palauttaa true, jos merkkijonossa on kaksi samaa merkkiä peräkkäin, ja muuten false.</p>
+
+		<h2>Esimerkit</h2>
+
+		<table>
+			<thead>
+				<tr>
+					<th>#</th>
+					<th>metodin kutsu</th>
+					<th>haluttu palautusarvo</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>1</td>
+					<td>kaksiSamaa("ABAABA")</td>
+					<td>true</td>
+				</tr>
+				<tr>
+					<td>2</td>
+					<td>kaksiSamaa("XXXXX")</td>
+					<td>true</td>
+				</tr>
+				<tr>
+					<td>3</td>
+					<td>kaksiSamaa("ABCABC")</td>
+					<td>false</td>
+				</tr>
+				<tr>
+					<td>4</td>
+					<td>kaksiSamaa("ABABA")</td>
+					<td>false</td>
+				</tr>
+			</tbody>
+		</table>
+
+	</div>
+
+</div>
+
+<div class="exercise"  id="t2">
+
+	<header>
+		<h1>Tehtävä 2</h1>
+	</header>
+
+	<div>
+		<p>Tehtäväsi on etsiä merkkijonosta pisin samaa merkkiä toistava osuus ja laskea sen pituus.</p>
+
+		<p>Esimerkiksi merkkijonossa ABBACCCCAAA samaa merkkiä toistavat osuudet ovat A, BB, A, CCCC ja AAA, ja näistä pisin on osuus CCCC, johon kuuluu 4 merkkiä.</p>
+
+		<h2>Toteutus</h2>
+
+		<p>Toteuta metodi: <code>int pisinOsuus(String mjono)</code></p>
+		<p>Parametri mjono on merkkijono, joka muodostuu merkeistä A..Z ja jossa on 1..10<sup>5</sup> merkkiä.</p>
+
+		<p>Metodin tulee palauttaa merkkijonon pisimmän samaa merkkiä toistavan osuuden pituus.</p>
+
+		<h2>Esimerkit</h2>
+
+		<table>
+			<thead>
+				<tr>
+					<th>#</th>
+					<th>metodin kutsu</th>
+					<th>haluttu palautusarvo</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>1</td>
+					<td>pisinOsuus("AABBBCC")</td>
+					<td>3</td>
+				</tr>
+				<tr>
+					<td>2</td>
+					<td>pisinOsuus("AABBCC")</td>
+					<td>2</td>
+				</tr>
+				<tr>
+					<td>3</td>
+					<td>pisinOsuus("XXXXXXX")</td>
+					<td>7</td>
+				</tr>
+				<tr>
+					<td>4</td>
+					<td>pisinOsuus("AAABBBB")</td>
+					<td>4</td>
+				</tr>
+				<tr>
+					<td>5</td>
+					<td>pisinOsuus("AAAABBB")</td>
+					<td>4</td>
+				</tr>
+				<tr>
+					<td>6</td>
+					<td>pisinOsuus("ABBABBBA")</td>
+					<td>3</td>
+				</tr>
+			</tbody>
+		</table>
+
+	</div>
+
+</div>
+
+<div class="exercise"  id="t3">
+
+	<header>
+		<h1>Tehtävä 3</h1>
+	</header>
+
+	<div>
+		<p>Merkkijono on palindromi, jos se on sama takaperin luettuna.</p>
+
+		<p>Sinulle on annettu merkkijono ja tehtäväsi on muodostaa palindromi siinä olevista merkeistä.	Saat järjestää merkit mihin tahansa järjestykseen. Onko tehtäväsi mahdollinen?</p>
+
+		<p>Esimerkiksi jos merkkijono on AABACAB, voit muuttaa sen merkit järjestykseen	AABCBAA, jolloin tuloksena on palindromi. Mutta merkkijonosta AABBCAB ei saa mitenkään tehtyä palindromia.</p>
+
+		<h2>Toteutus</h2>
+
+		<p>Toteuta metodi: <code>boolean melkeinPalindromi(String mjono)</code></p>
+
+		<p>Parametri <code>mjono</code> on merkkijono, joka muodostuu merkeistä <code>A</code>..<code>Z</code> ja jossa on 1..10<sup>5</sup> merkkiä.</p>
+
+		<p>Metodin tulee palauttaa <code>true</code>, jos merkkijonon merkeistä saa palindromin järjestämällä ne sopivasti, ja muuten <code>false</code>.</p>
+
+		<h2>Esimerkit</h2>
+
+		<table>
+			<thead>
+				<tr>
+					<th>#</th>
+					<th>metodin kutsu</th>
+					<th>haluttu palautusarvo</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>1</td>
+					<td>melkeinPalindromi("AABB")</td>
+					<td>true</td>
+				</tr>
+				<tr>
+					<td>2</td>
+					<td>melkeinPalindromi("ABBBB")</td>
+					<td>true</td>
+				</tr>
+				<tr>
+					<td>3</td>
+					<td>melkeinPalindromi("ABCBA")</td>
+					<td>true</td>
+				</tr>
+				<tr>
+					<td>4</td>
+					<td>melkeinPalindromi("ABBB")</td>
+					<td>false</td>
+				</tr>
+				<tr>
+					<td>5</td>
+					<td>melkeinPalindromi("AABCD")</td>
+					<td>false</td>
+				</tr>
+			</tbody>
+		</table>
+
+	</div>
+
+</div>
+
+<div class="exercise"  id="t3">
+
+	<header>
+		<h1>Tehtävä 4</h1>
+	</header>
+
+	<div>
+		<p>Sinulle on annettu merkkijono ja tehtäväsi on muuttaa se palindromiksi poistamalla siitä tasan yksi merkki. Onko tehtäväsi mahdollinen?</p>
+
+		<p>Esimerkiksi jos merkkijono on AABCCBAXA, voit poistaa siitä merkin X, jolloin tuloksena on palindromi. Mutta merkkijonosta AXABCCBAYA ei saa mitenkään tehtyä palindromia.</p>
+
+		<h2>Toteutus</h2>
+
+		<p>Toteuta metodi: <code>boolean melkeinPalindromi(String mjono)</code></p>
+
+		<p>Parametri mjono on merkkijono, joka muodostuu merkeistä A..Z ja jossa on 2..10<sup>5</sup> merkkiä.</p>
+
+		<p>Metodin tulee palauttaa true, jos merkkijonosta saa palindromin poistamalla tasan yhden merkin, ja muuten false.</p>
+
+		<h2>Esimerkit</h2>
+
+		<table>
+			<thead>
+				<tr>
+					<th>#</th>
+					<th>metodin kutsu</th>
+					<th>haluttu palautusarvo</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>1</td>
+					<td>melkeinPalindromi("ABCBXA")</td>
+					<td>true</td>
+				</tr>
+				<tr>
+					<td>2</td>
+					<td>melkeinPalindromi("ABCBAX")</td>
+					<td>true</td>
+				</tr>
+				<tr>
+					<td>3</td>
+					<td>melkeinPalindromi("ABCXBA")</td>
+					<td>true</td>
+				</tr>
+				<tr>
+					<td>4</td>
+					<td>melkeinPalindromi("ABCDE")</td>
+					<td>false</td>
+				</tr>
+				<tr>
+					<td>5</td>
+					<td>melkeinPalindromi("BAAAAC")</td>
+					<td>false</td>
+				</tr>
+			</tbody>
+		</table>
+
+	</div>
+
+</div>
+
+<div class="exercise"  id="t3">
+
+	<header>
+		<h1>Tehtävä 5</h1>
+	</header>
+
+	<div>
+		<p>Sinulle on annettu merkkijono ja tehtäväsi on järjestää merkit niin, että missään kohdassa ei ole kahta samaa merkkiä peräkkäin. Jos ratkaisuja on useita, valitse aakkosjärjestyksessä ensimmäinen ratkaisu.</p>
+
+		<p>Esimerkiksi merkit AAABBB voi järjestää kahdella tavalla: ABABAB ja BABABA. Näistä ABABAB on ensin aakkosissa, joten tämä on oikea ratkaisu.</p>
+
+		<h2>Toteutus</h2>
+
+		<p>Toteuta metodi: <code>String jarjestaMerkit(String mjono)</code></p>
+
+		<p>Parametri <code>mjono</code> on merkkijono, joka muodostuu merkeistä <code>A</code>..<code>Z</code> ja jossa on 1..10<sup>5</sup> merkkiä.</p>
+
+		<p>Metodin tulee palauttaa merkkijono, jossa on samat merkit kuin merkkijonossa mjono, mutta missään kohdassa ei ole kahta samaa merkkiä peräkkäin.</p>
+
+		<p>Jos ratkaisuja on useita, metodin tulee palauttaa aakkosjärjestyksessä ensimmäinen ratkaisu. Voit olettaa, että kaikissa testeissä ratkaisu on olemassa.</p>
+
+		<h2>Esimerkit</h2>
+
+		<table>
+			<thead>
+				<tr>
+					<th>#</th>
+					<th>metodin kutsu</th>
+					<th>haluttu palautusarvo</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>1</td>
+					<td>jarjestaMerkit("AAABBB")</td>
+					<td>ABABAB</td>
+				</tr>
+				<tr>
+					<td>2</td>
+					<td>jarjestaMerkit("CBAED")</td>
+					<td>ABCDE</td>
+				</tr>
+				<tr>
+					<td>3</td>
+					<td>jarjestaMerkit("AXAXA")</td>
+					<td>AXAXA</td>
+				</tr>
+				<tr>
+					<td>4</td>
+					<td>jarjestaMerkit("CBAXXXX")</td>
+					<td>XAXBXCX</td>
+				</tr>
+			</tbody>
+		</table>
+
+		<p><b>HUOMAUTUS! Jos rakennat merkkijonon merkki kerrallaan, käytä joko StringBuilder:ia tai char-taulukkoa. Merkkijonon kasvattaminen yhdellä merkillä on erittäin hidasta Javassa, eikä pelkkää Stringiä käyttävä ratkaisu todennäköisesti läpäise testejä!</b></p>
+	</div>
+
+</div>

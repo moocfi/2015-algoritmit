@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width initial-scale=1" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+		<title>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
+		<meta name="description" content="{{ site.description }}">
+
+		<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Alegreya+Sans:400|Noto+Sans:400,700|Open+Sans+Condensed:300,700" type="text/css">
+		<link rel="stylesheet" href="{{ "/css/main.css" | prepend: site.baseurl }}">
+		<link rel="stylesheet" href="{{ "/css/material.css" | prepend: site.baseurl }}">
+		<link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
+		<link rel="icon" type="image/png" href="{{ "/img/favicon.png" | prepend: site.baseurl }}">
+
+	</head>
+
+	<body>
+		<header>
+			<a id="week-selector-toggle">&#9776;</a>
+			<nav id="week-selector">
+				<ul>
+					{% for site in site.navigation %}
+					<li{% if site[1] == page.url %} class="current"{% endif %}>
+						<a href="{{ site[1] | prepend: site.baseurl }}">{{site[0]}}</a>
+					</li>
+					{% endfor %}
+				</ul>
+			</nav>
+		</header>
+
+		<main>
+			<header>
+				<div class="organiser"><a href="http://cs.helsinki.fi"><img id="organiser" src="img/hy.png" alt="Helsingin yliopisto, University of Helsinki"></a></div>
+				<div class="mooc"><a href="http://mooc.fi"><img id="mooc "src="img/logo.png" alt="MOOC.FI"></a></div>
+
+				<p>Tämä materiaali on lisensoitu Creative Commons BY-NC-SA-lisenssillä, joten voit käyttää ja levittää sitä vapaasti, kunhan alkuperäisten tekijöiden nimiä ei poisteta. Jos teet muutoksia materiaaliin ja haluat levittää muunneltua versiota, se täytyy lisensoida samanlaisella vapaalla lisenssillä. Materiaalien käyttö kaupalliseen tarkoitukseen on ilman erillistä lupaa kielletty.</p>
+
+				<p id="by-line">Tekijät: Antti Laaksonen ja Toni Annala</p>
+				<p id="material-license"><img src="img/copyright.png" width="88" height="31" alt="Creative Commons copyright" class="cc"></p>
+			</header>
+
+			<article>
+				<header>
+					<h1>{{ page.title }}</h1>
+				</header>
+				<section id="huomautus_lukijalle">
+					Huom! Kaikissa tehtävissä tällä ja tulevilla viikoilla aikaraja on 1 sekunti. Tämä tarkoittaa, että ratkaisun tulee olla tehokas, jotta se hyväksytään.
+				</section>
+				{{ content }}
+			</article>
+		</main>
+
+		<footer>
+			<article>
+			<section id="about">
+				<p>MOOC.FI tarjoaa täysin ilmaisia yliopistotason ohjelmointikursseja kenelle tahansa.</p>
+				<p>Kurssitarjonnastamme löydät opeteltavaa olit sitten ohjelmoinnista kiinnostunut aloittelija, tai taitojasi syventävä peruskoodari.</p>
+			</section>
+			<section id="contact">
+				<p class="facebook">Tiedotus <a href="#">Twitter</a> &amp; <a href="http://www.kikatus.com/misc/MOOC/#">Facebook</a></p>
+				<p class="irc">Ohjaus <a href="#">#mooc.fi @ IRCNet</a></p>
+				<p class="sourceforge">Virheraportit <a href="#">SourceForge</a></p>
+			</section>
+			<section id="license">
+				<img src="/img/helsingin-yliopisto-computer-science.png" alt="Helsingin yliopisto - Department of computer science">
+				<p>
+					<img src="/img/copyright.png" alt="Creative Commons copyright"> 
+					Sivuston kaikki materiaali on lisensoitu Creative Commons BY-NC-SA-lisenssillä 
+				</p>
+			</section>
+			</article>
+		</footer>
+		
+		<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+		<script src="/js/mooc.js"></script>
+		<!--<script src="/js/material.js"></script>-->
+
+	</body>
+
+</html>
