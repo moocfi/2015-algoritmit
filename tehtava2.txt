@@ -1,0 +1,35 @@
+Tehtävä 2
+
+Tehtäväsi on laskea DNA-ketjujen määrä, joissa ei ole kahta samaa
+merkkiä peräkkäin ja jotka vastaavat annettua pohjaa.
+
+Pohja muodostuu merkeistä A, C, G, T ja ?. Merkki ? tarkoittaa, että
+siihen kohtaan voi tulla mikä tahansa merkki, kunhan ketjussa ei ole
+missään kohtaa kahta samaa merkkiä peräkkäin.
+
+Esimerkiksi jos pohja on A?C?, ketjuja on 6:
+
+AGCA
+AGCG
+AGCT
+ATCA
+ATCG
+ATCT
+Toteutus
+
+Toteuta seuraava metodi:
+
+int ketjumaara(String pohja)
+Parametri pohja on DNA-ketjun pohja yllä kuvatussa muodossa. Pohjan
+pituus on 1..10 merkkiä.
+
+Metodin tulee palauttaa pohjaa vastaavien DNA-ketjujen määrä, joissa ei
+ole kahta samaa merkkiä peräkkäin.
+
+Esimerkit
+
+# metodin kutsu haluttu palautusarvo
+1 ketjumaara("A?C?")  6
+2 ketjumaara("???") 36
+3 ketjumaara("AGAG")  1
+4 ketjumaara("A???T") 20

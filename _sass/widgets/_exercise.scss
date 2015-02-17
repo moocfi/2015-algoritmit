@@ -7,13 +7,13 @@
 
 .exercise > header {
     cursor: pointer;
-    background: url("/img/arrow-down.png") no-repeat scroll right 50% #3EBBA7;
+    background: url("../img/arrow-down.png") no-repeat scroll right 50% #3EBBA7;
     transition: all 0.25s ease-in-out; 
     -webkit-transition: all 0.25s ease-in-out; 
     -moz-transition: all 0.25s ease-in-out;
 
     &:hover {
-        background: url("/img/arrow-down.png") no-repeat scroll right 50% #139197;
+        background: url("../img/arrow-down.png") no-repeat scroll right 50% #139197;
     }
 }
 
@@ -27,9 +27,9 @@
 }
 
 .exercise > header h1.open {
-    background: url("/img/arrow-up.png") no-repeat scroll right 50% #3EBBA7;
+    background: url("../img/arrow-up.png") no-repeat scroll right 50% #3EBBA7;
 
     &:hover {
-        background: url("/img/arrow-up.png") no-repeat scroll right 50% #139197;
+        background: url("../img/arrow-up.png") no-repeat scroll right 50% #139197;
     }
 }

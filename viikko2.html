@@ -2,3 +2,244 @@
 layout: material
 title: Viikko 2
 ---
+<div class="exercise"  id="t1">
+
+	<header>
+		<h1>Tehtävä 1</h1>
+	</header>
+
+	<div>
+
+		<p>
+			DNA-ketju on merkkijono, joka muodostuu merkeistä
+			<code>A</code>
+			,
+			<code>C</code>
+			,
+			<code>G</code>
+			ja
+			<code>T</code>
+			.
+		</p>
+
+		<p>
+			Tehtäväsi on laskea n-merkkisten DNA-ketjujen määrä, joissa ei ole kahta samaa merkkiä peräkkäin.
+		</p>
+
+		<p>
+			Esimerkiksi jos
+			<code>n = 3</code>
+			, ketjujen määrä on 36:
+		</p>
+
+		<table>
+			<tbody>
+				<tr><td>ACA</td><td>CAC</td><td>GAC</td><td>TAC</td></tr>
+				<tr><td>ACG</td><td>CAG</td><td>GAG</td><td>TAG</td></tr>
+				<tr><td>ACT</td><td>CAT</td><td>GAT</td><td>TAT</td></tr>
+				<tr><td>AGA</td><td>CGA</td><td>GCA</td><td>TCA</td></tr>
+				<tr><td>AGC</td><td>CGC</td><td>GCG</td><td>TCG</td></tr>
+				<tr><td>AGT</td><td>CGT</td><td>GCT</td><td>TCT</td></tr>
+				<tr><td>ATA</td><td>CTA</td><td>GTA</td><td>TGA</td></tr>
+				<tr><td>ATC</td><td>CTC</td><td>GTC</td><td>TGC</td></tr>
+				<tr><td>ATG</td><td>CTG</td><td>GTG</td><td>TGT</td></tr>
+			</tbody>
+		</table>
+		
+		<h2>Toteutus</h2>
+
+		<p>Toteuta metodi: <code>int ketjumaara(int n)</code></p>
+		<p>Parametri n on ketjun merkkien määrä, kokonaisluku väliltä 1..10.</p>
+
+		<p>Metodin tulee palauttaa n-merkkisten DNA-ketjujen määrä, joissa ei ole kahta samaa merkkiä peräkkäin.</p>
+
+		<h2>Esimerkit</h2>
+
+		<table>
+			<thead>
+				<tr><th>#</th><th>metodin kutsu</th><th>haluttu palautusarvo</th></tr>
+			</thead>
+			<tbody>
+				<tr><td>1</td><td>ketjumaara(3)</td><td>36</td></tr>
+				<tr><td>2</td><td>ketjumaara(1)</td><td>4</td></tr>
+				<tr><td>3</td><td>ketjumaara(2)</td><td>12</td></tr>
+				<tr><td>4</td><td>ketjumaara(5)</td><td>324</td></tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+
+<div class="exercise"  id="t2">
+
+	<header>
+		<h1>Tehtävä 2</h1>
+	</header>
+
+	<div>
+
+		<p>
+			Tehtäväsi on laskea DNA-ketjujen määrä, joissa ei ole kahta samaa merkkiä peräkkäin ja jotka vastaavat annettua pohjaa.
+		</p>
+
+		<p>Pohja muodostuu merkeistä A, C, G, T ja ?. Merkki ? tarkoittaa, että siihen kohtaan voi tulla mikä tahansa merkki, kunhan ketjussa ei ole missään kohtaa kahta samaa merkkiä peräkkäin.</p>
+
+		<p>
+			Esimerkiksi jos pohja on <code>A?C?</code>, ketjuja on 6:
+		</p>
+
+		<table>
+			<tbody>
+				<tr><td>AGCA</td></tr>
+				<tr><td>AGCG</td></tr>
+				<tr><td>AGCT</td></tr>
+				<tr><td>ATCA</td></tr>
+				<tr><td>ATCG</td></tr>
+				<tr><td>ATCT</td></tr>
+				
+			</tbody>
+		</table>
+		
+		<h2>Toteutus</h2>
+
+		<p>Toteuta metodi: <code>int ketjumaara(String pohja)</code></p>
+		
+		<p>Parametri pohja on DNA-ketjun pohja yllä kuvatussa muodossa. Pohjan pituus on 1..10 merkkiä.</p>
+
+		<p>Metodin tulee palauttaa pohjaa vastaavien DNA-ketjujen määrä, joissa ei ole kahta samaa merkkiä peräkkäin.</p>
+
+		<h2>Esimerkit</h2>
+
+		<table>
+			<thead>
+				<tr><th>#</th><th>metodin kutsu</th><th>haluttu palautusarvo</th></tr>
+			</thead>
+			<tbody>
+				<tr><td>1</td><td>ketjumaara("A?C?")</td><td>6</td></tr>
+				<tr><td>2</td><td>ketjumaara("???")</td><td>36</td></tr>
+				<tr><td>3</td><td>ketjumaara("AGAG")</td><td>1</td></tr>
+				<tr><td>4</td><td>ketjumaara("A???T")</td><td>20</td></tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+
+
+<div class="exercise"  id="t3">
+
+	<header>
+		<h1>Tehtävä 3</h1>
+	</header>
+
+	<div>
+
+		<p>Uolevi heitti noppaa ja merkitsi silmäluvut muistiin (silmäluku voi olla 1..6). Lopuksi hän laski yhteen kaikkien heittojen silmäluvut ja tuloksena oli luku x. Montako mahdollista heittosarjaa on olemassa, jotka Uolevi on voinut heittää?</p>
+
+		<p>Esimerkiksi jos <code>x = 4</code>, Uolevi on voinut heittää jonkin seuraavista sarjoista:</p>
+		<pre>
+4
+3, 1
+2, 1, 1
+2, 2
+1, 1, 1, 1
+1, 1, 2
+1, 2, 1
+1, 3
+		</pre>
+		<p>Vaihtoehtoja on siis 8.</p>
+
+		<h2>Toteutus</h2>
+
+		<p>Toteuta metodi: <code>int nopanheitot(int x)</code></p>
+
+		<p>Parametri x on Uolevin laskema silmälukujen summa. Parametri on positiivinen kokonaisluku.</p>
+
+		<p>Metodin tulee palauttaa mahdollisten heittosarjojen määrä. Voit olettaa, että tulos on enintään 106.</p>
+
+		<h2>Esimerkit</h2>
+
+		<table>
+			<thead>
+				<tr><th>#</th><th>metodin kutsu</th><th>haluttu palautusarvo</th></tr>
+			</thead>
+			<tbody>
+				<tr><td>1</td><td>nopanheitto(4)</td><td>8</td></tr>
+				<tr><td>2</td><td>nopanheitto(2)</td><td>2</td></tr>
+				<tr><td>3</td><td>nopanheitto(3)</td><td>4</td></tr>
+				<tr><td>4</td><td>nopanheitto(1)</td><td>1</td></tr>
+				<tr><td>5</td><td>nopanheitto(12)</td><td>1936</td></tr>
+			</tbody>
+		</table>
+
+	</div>
+</div>
+
+<div class="exercise"  id="t4">
+
+	<header>
+		<h1>Tehtävä 4</h1>
+	</header>
+
+	<div>
+
+		<p>Uolevi ja Maija löysivät pussin omenoita. Ensin he punnitsivat jokaisen omenan painon. Sitten he haluaisivat jakaa omenat keskenään niin, että molemmat saisivat mahdollisimman yhtä paljon syötävää. Voisitko auttaa heitä?</p>
+
+		<p>Esimerkiksi jos omenoita on 5 ja painot ovat <code>{5, 3, 6, 2, 9}</code>, paras ratkaisu on, että toinen saa omenat <code>{5, 6, 2}</code> (paino yhteensä 13) ja toinen saa omenat <code>{3, 9}</code> (paino yhteensä 12). Näin painojen ero on vain 1.</p>
+
+		<h2>Toteutus</h2>
+
+		<p>Toteuta metodi: <code>int jaaOmenat(int[] omenat)</code></p>
+
+		<p>Parametri omenat on taulukko, joka sisältää omenoiden painot. Jokainen paino on kokonaisluku välillä 1..1000. Omenoiden määrä on välillä 1..15.</p>
+		<p>Metodin tulee palauttaa omenoiden yhteispainon ero parhaimmassa jakotavassa.</p>
+
+		<h2>Esimerkit</h2>
+
+		<table>
+			<thead>
+				<tr><th>#</th><th>metodin kutsu</th><th>haluttu palautusarvo</th></tr>
+			</thead>
+			<tbody>
+				<tr><td>1</td><td>jaaOmenat(new int[] {5, 3, 6, 2, 9})</td><td>1</td></tr>
+				<tr><td>2</td><td>jaaOmenat(new int[] {2, 2})</td><td>0</td></tr>
+				<tr><td>3</td><td>jaaOmenat(new int[] {999})</td><td>999</td></tr>
+				<tr><td>4</td><td>jaaOmenat(new int[] {999, 1, 1, 1})</td><td>996</td></tr>
+			</tbody>
+		</table>
+
+	</div>
+</div>
+
+<div class="exercise"  id="t5">
+
+	<header>
+		<h1>Tehtävä 5</h1>
+	</header>
+
+	<div>
+
+		<p>Tehtäväsi on toteuttaa tehtävän 3 metodi tehokkaasti.</p>
+
+		<h2>Toteutus</h2>
+
+		<p>Toteuta metodi: <code>long nopanheitot(int x)</code></p>
+
+		<p>Parametri x on Uolevin laskema silmälukujen summa. Parametri on positiivinen kokonaisluku.</p>
+		<p>Metodin tulee palauttaa mahdollisten heittosarjojen määrä. Voit olettaa, että tulos on enintään 1018.</p>
+
+		<h2>Esimerkit</h2>
+
+		<table>
+			<thead>
+				<tr><th>#</th><th>metodin kutsu</th><th>haluttu palautusarvo</th></tr>
+			</thead>
+			<tbody>
+				<tr><td>1</td><td>nopanheitot(4)</td><td>8</td></tr>
+				<tr><td>2</td><td>nopanheitot(30)</td><td>437613522</td></tr>
+				<tr><td>3</td><td>nopanheitot(44)</td><td>6386990736226</td></tr>
+				<tr><td>4</td><td>nopanheitot(39)</td><td>207991012832</td></tr>
+				<tr><td>5</td><td>nopanheitot(60)</td><td>366861197229128136</td></tr>
+			</tbody>
+		</table>
+
+	</div>
+</div>
