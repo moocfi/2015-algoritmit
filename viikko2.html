@@ -23,7 +23,8 @@ title: Viikko 2
 		</p>
 
 		<p>
-			Tehtäväsi on laskea n-merkkisten DNA-ketjujen määrä, joissa ei ole kahta samaa merkkiä peräkkäin.
+			Tehtäväsi on laskea <i>n</i>
+			-merkkisten DNA-ketjujen määrä, joissa ei ole kahta samaa merkkiä peräkkäin.
 		</p>
 
 		<p>
@@ -34,36 +35,127 @@ title: Viikko 2
 
 		<table>
 			<tbody>
-				<tr><td>ACA</td><td>CAC</td><td>GAC</td><td>TAC</td></tr>
-				<tr><td>ACG</td><td>CAG</td><td>GAG</td><td>TAG</td></tr>
-				<tr><td>ACT</td><td>CAT</td><td>GAT</td><td>TAT</td></tr>
-				<tr><td>AGA</td><td>CGA</td><td>GCA</td><td>TCA</td></tr>
-				<tr><td>AGC</td><td>CGC</td><td>GCG</td><td>TCG</td></tr>
-				<tr><td>AGT</td><td>CGT</td><td>GCT</td><td>TCT</td></tr>
-				<tr><td>ATA</td><td>CTA</td><td>GTA</td><td>TGA</td></tr>
-				<tr><td>ATC</td><td>CTC</td><td>GTC</td><td>TGC</td></tr>
-				<tr><td>ATG</td><td>CTG</td><td>GTG</td><td>TGT</td></tr>
+				<tr>
+					<td>ACA</td>
+					<td>CAC</td>
+					<td>GAC</td>
+					<td>TAC</td>
+				</tr>
+				<tr>
+					<td>ACG</td>
+					<td>CAG</td>
+					<td>GAG</td>
+					<td>TAG</td>
+				</tr>
+				<tr>
+					<td>ACT</td>
+					<td>CAT</td>
+					<td>GAT</td>
+					<td>TAT</td>
+				</tr>
+				<tr>
+					<td>AGA</td>
+					<td>CGA</td>
+					<td>GCA</td>
+					<td>TCA</td>
+				</tr>
+				<tr>
+					<td>AGC</td>
+					<td>CGC</td>
+					<td>GCG</td>
+					<td>TCG</td>
+				</tr>
+				<tr>
+					<td>AGT</td>
+					<td>CGT</td>
+					<td>GCT</td>
+					<td>TCT</td>
+				</tr>
+				<tr>
+					<td>ATA</td>
+					<td>CTA</td>
+					<td>GTA</td>
+					<td>TGA</td>
+				</tr>
+				<tr>
+					<td>ATC</td>
+					<td>CTC</td>
+					<td>GTC</td>
+					<td>TGC</td>
+				</tr>
+				<tr>
+					<td>ATG</td>
+					<td>CTG</td>
+					<td>GTG</td>
+					<td>TGT</td>
+				</tr>
 			</tbody>
 		</table>
-		
+
 		<h2>Toteutus</h2>
 
-		<p>Toteuta metodi: <code>int ketjumaara(int n)</code></p>
-		<p>Parametri n on ketjun merkkien määrä, kokonaisluku väliltä 1..10.</p>
+		<p>
+			Toteuta metodi:
+			<code>int ketjumaara(int n)</code>
+		</p>
+		<p>
+			Parametri
+			<code>n</code>
+			on ketjun merkkien määrä, kokonaisluku väliltä 1..10.
+		</p>
 
-		<p>Metodin tulee palauttaa n-merkkisten DNA-ketjujen määrä, joissa ei ole kahta samaa merkkiä peräkkäin.</p>
+		<p>
+			Metodin tulee palauttaa <i>n</i>
+			-merkkisten DNA-ketjujen määrä, joissa ei ole kahta samaa merkkiä peräkkäin.
+		</p>
 
 		<h2>Esimerkit</h2>
 
 		<table>
 			<thead>
-				<tr><th>#</th><th>metodin kutsu</th><th>haluttu palautusarvo</th></tr>
+				<tr>
+					<th>#</th>
+					<th>metodin kutsu</th>
+					<th>haluttu palautusarvo</th>
+				</tr>
 			</thead>
 			<tbody>
-				<tr><td>1</td><td>ketjumaara(3)</td><td>36</td></tr>
-				<tr><td>2</td><td>ketjumaara(1)</td><td>4</td></tr>
-				<tr><td>3</td><td>ketjumaara(2)</td><td>12</td></tr>
-				<tr><td>4</td><td>ketjumaara(5)</td><td>324</td></tr>
+				<tr>
+					<td>1</td>
+					<td>
+						<code>ketjumaara(3)</code>
+					</td>
+					<td>
+						<code>36</code>
+					</td>
+				</tr>
+				<tr>
+					<td>2</td>
+					<td>
+						<code>ketjumaara(1)</code>
+					</td>
+					<td>
+						<code>4</code>
+					</td>
+				</tr>
+				<tr>
+					<td>3</td>
+					<td>
+						<code>ketjumaara(2)</code>
+					</td>
+					<td>
+						<code>12</code>
+					</td>
+				</tr>
+				<tr>
+					<td>4</td>
+					<td>
+						<code>ketjumaara(5)</code>
+					</td>
+					<td>
+						<code>324</code>
+					</td>
+				</tr>
 			</tbody>
 		</table>
 	</div>
@@ -81,48 +173,108 @@ title: Viikko 2
 			Tehtäväsi on laskea DNA-ketjujen määrä, joissa ei ole kahta samaa merkkiä peräkkäin ja jotka vastaavat annettua pohjaa.
 		</p>
 
-		<p>Pohja muodostuu merkeistä A, C, G, T ja ?. Merkki ? tarkoittaa, että siihen kohtaan voi tulla mikä tahansa merkki, kunhan ketjussa ei ole missään kohtaa kahta samaa merkkiä peräkkäin.</p>
+		<p>
+			Pohja muodostuu merkeistä A, C, G, T ja ?. Merkki ? tarkoittaa, että siihen kohtaan voi tulla mikä tahansa merkki, kunhan ketjussa ei ole missään kohtaa kahta samaa merkkiä peräkkäin.
+		</p>
 
 		<p>
-			Esimerkiksi jos pohja on <code>A?C?</code>, ketjuja on 6:
+			Esimerkiksi jos pohja on
+			<code>A?C?</code>
+			, ketjuja on 6:
 		</p>
 
 		<table>
 			<tbody>
-				<tr><td>AGCA</td></tr>
-				<tr><td>AGCG</td></tr>
-				<tr><td>AGCT</td></tr>
-				<tr><td>ATCA</td></tr>
-				<tr><td>ATCG</td></tr>
-				<tr><td>ATCT</td></tr>
-				
+				<tr>
+					<td>AGCA</td>
+				</tr>
+				<tr>
+					<td>AGCG</td>
+				</tr>
+				<tr>
+					<td>AGCT</td>
+				</tr>
+				<tr>
+					<td>ATCA</td>
+				</tr>
+				<tr>
+					<td>ATCG</td>
+				</tr>
+				<tr>
+					<td>ATCT</td>
+				</tr>
+
 			</tbody>
 		</table>
-		
+
 		<h2>Toteutus</h2>
 
-		<p>Toteuta metodi: <code>int ketjumaara(String pohja)</code></p>
-		
-		<p>Parametri pohja on DNA-ketjun pohja yllä kuvatussa muodossa. Pohjan pituus on 1..10 merkkiä.</p>
+		<p>
+			Toteuta metodi:
+			<code>int ketjumaara(String pohja)</code>
+		</p>
 
-		<p>Metodin tulee palauttaa pohjaa vastaavien DNA-ketjujen määrä, joissa ei ole kahta samaa merkkiä peräkkäin.</p>
+		<p>
+			Parametri
+			<code>pohja</code>
+			on DNA-ketjun pohja yllä kuvatussa muodossa. Pohjan pituus on 1..10 merkkiä.
+		</p>
+
+		<p>
+			Metodin tulee palauttaa pohjaa vastaavien DNA-ketjujen määrä, joissa ei ole kahta samaa merkkiä peräkkäin.
+		</p>
 
 		<h2>Esimerkit</h2>
 
 		<table>
 			<thead>
-				<tr><th>#</th><th>metodin kutsu</th><th>haluttu palautusarvo</th></tr>
+				<tr>
+					<th>#</th>
+					<th>metodin kutsu</th>
+					<th>haluttu palautusarvo</th>
+				</tr>
 			</thead>
 			<tbody>
-				<tr><td>1</td><td>ketjumaara("A?C?")</td><td>6</td></tr>
-				<tr><td>2</td><td>ketjumaara("???")</td><td>36</td></tr>
-				<tr><td>3</td><td>ketjumaara("AGAG")</td><td>1</td></tr>
-				<tr><td>4</td><td>ketjumaara("A???T")</td><td>20</td></tr>
+				<tr>
+					<td>1</td>
+					<td>
+						<code>ketjumaara("A?C?")</code>
+					</td>
+					<td>
+						<code>6</code>
+					</td>
+				</tr>
+				<tr>
+					<td>2</td>
+					<td>
+						<code>ketjumaara("???")</code>
+					</td>
+					<td>
+						<code>36</code>
+					</td>
+				</tr>
+				<tr>
+					<td>3</td>
+					<td>
+						<code>ketjumaara("AGAG")</code>
+					</td>
+					<td>
+						<code>1</code>
+					</td>
+				</tr>
+				<tr>
+					<td>4</td>
+					<td>
+						<code>ketjumaara("A???T")</code>
+					</td>
+					<td>
+						<code>20</code>
+					</td>
+				</tr>
 			</tbody>
 		</table>
 	</div>
 </div>
-
 
 <div class="exercise"  id="t3">
 
@@ -132,41 +284,103 @@ title: Viikko 2
 
 	<div>
 
-		<p>Uolevi heitti noppaa ja merkitsi silmäluvut muistiin (silmäluku voi olla 1..6). Lopuksi hän laski yhteen kaikkien heittojen silmäluvut ja tuloksena oli luku x. Montako mahdollista heittosarjaa on olemassa, jotka Uolevi on voinut heittää?</p>
+		<p>
+			Uolevi heitti noppaa ja merkitsi silmäluvut muistiin (silmäluku voi olla 1..6). Lopuksi hän laski yhteen kaikkien heittojen silmäluvut ja tuloksena oli luku
+			<i>x</i>
+			. Montako mahdollista heittosarjaa on olemassa, jotka Uolevi on voinut heittää?
+		</p>
 
-		<p>Esimerkiksi jos <code>x = 4</code>, Uolevi on voinut heittää jonkin seuraavista sarjoista:</p>
-		<pre>
-4
-3, 1
-2, 1, 1
-2, 2
-1, 1, 1, 1
-1, 1, 2
-1, 2, 1
-1, 3
-		</pre>
+		<p>
+			Esimerkiksi jos
+			<code>x = 4</code>
+			, Uolevi on voinut heittää jonkin seuraavista sarjoista:
+		</p>
+		<ul>
+			<li>4</li>
+			<li>3, 1</li>
+			<li>2, 1, 1</li>
+			<li>2, 2</li>
+			<li>1, 1, 1, 1</li>
+			<li>1, 1, 2</li>
+			<li>1, 2, 1</li>
+			<li>1, 3</li>
+		</ul>
 		<p>Vaihtoehtoja on siis 8.</p>
 
 		<h2>Toteutus</h2>
 
-		<p>Toteuta metodi: <code>int nopanheitot(int x)</code></p>
+		<p>
+			Toteuta metodi:
+			<code>int nopanheitot(int x)</code>
+		</p>
 
-		<p>Parametri x on Uolevin laskema silmälukujen summa. Parametri on positiivinen kokonaisluku.</p>
+		<p>
+			Parametri
+			<code>x</code>
+			on Uolevin laskema silmälukujen summa. Parametri on positiivinen kokonaisluku.
+		</p>
 
-		<p>Metodin tulee palauttaa mahdollisten heittosarjojen määrä. Voit olettaa, että tulos on enintään 106.</p>
+		<p>
+			Metodin tulee palauttaa mahdollisten heittosarjojen määrä. Voit olettaa, että tulos on enintään 10 <sup>6</sup>
+			.
+		</p>
 
 		<h2>Esimerkit</h2>
 
 		<table>
 			<thead>
-				<tr><th>#</th><th>metodin kutsu</th><th>haluttu palautusarvo</th></tr>
+				<tr>
+					<th>#</th>
+					<th>metodin kutsu</th>
+					<th>haluttu palautusarvo</th>
+				</tr>
 			</thead>
 			<tbody>
-				<tr><td>1</td><td>nopanheitto(4)</td><td>8</td></tr>
-				<tr><td>2</td><td>nopanheitto(2)</td><td>2</td></tr>
-				<tr><td>3</td><td>nopanheitto(3)</td><td>4</td></tr>
-				<tr><td>4</td><td>nopanheitto(1)</td><td>1</td></tr>
-				<tr><td>5</td><td>nopanheitto(12)</td><td>1936</td></tr>
+				<tr>
+					<td>1</td>
+					<td>
+						<code>nopanheitot(4)</code>
+					</td>
+					<td>
+						<code>8</code>
+					</td>
+				</tr>
+				<tr>
+					<td>2</td>
+					<td>
+						<code>nopanheitot(2)</code>
+					</td>
+					<td>
+						<code>2</code>
+					</td>
+				</tr>
+				<tr>
+					<td>3</td>
+					<td>
+						<code>nopanheitot(3)</code>
+					</td>
+					<td>
+						<code>4</code>
+					</td>
+				</tr>
+				<tr>
+					<td>4</td>
+					<td>
+						<code>nopanheitot(1)</code>
+					</td>
+					<td>
+						<code>1</code>
+					</td>
+				</tr>
+				<tr>
+					<td>5</td>
+					<td>
+						<code>nopanheitot(12)</code>
+					</td>
+					<td>
+						<code>1936</code>
+					</td>
+				</tr>
 			</tbody>
 		</table>
 
@@ -181,28 +395,83 @@ title: Viikko 2
 
 	<div>
 
-		<p>Uolevi ja Maija löysivät pussin omenoita. Ensin he punnitsivat jokaisen omenan painon. Sitten he haluaisivat jakaa omenat keskenään niin, että molemmat saisivat mahdollisimman yhtä paljon syötävää. Voisitko auttaa heitä?</p>
+		<p>
+			Uolevi ja Maija löysivät pussin omenoita. Ensin he punnitsivat jokaisen omenan painon. Sitten he haluaisivat jakaa omenat keskenään niin, että molemmat saisivat mahdollisimman yhtä paljon syötävää. Voisitko auttaa heitä?
+		</p>
 
-		<p>Esimerkiksi jos omenoita on 5 ja painot ovat <code>{5, 3, 6, 2, 9}</code>, paras ratkaisu on, että toinen saa omenat <code>{5, 6, 2}</code> (paino yhteensä 13) ja toinen saa omenat <code>{3, 9}</code> (paino yhteensä 12). Näin painojen ero on vain 1.</p>
+		<p>
+			Esimerkiksi jos omenoita on 5 ja painot ovat
+			<code>{5, 3, 6, 2, 9}</code>
+			, paras ratkaisu on, että toinen saa omenat
+			<code>{5, 6, 2}</code>
+			(paino yhteensä 13) ja toinen saa omenat
+			<code>{3, 9}</code>
+			(paino yhteensä 12). Näin painojen ero on vain 1.
+		</p>
 
 		<h2>Toteutus</h2>
 
-		<p>Toteuta metodi: <code>int jaaOmenat(int[] omenat)</code></p>
+		<p>
+			Toteuta metodi:
+			<code>int jaaOmenat(int[] omenat)</code>
+		</p>
 
-		<p>Parametri omenat on taulukko, joka sisältää omenoiden painot. Jokainen paino on kokonaisluku välillä 1..1000. Omenoiden määrä on välillä 1..15.</p>
-		<p>Metodin tulee palauttaa omenoiden yhteispainon ero parhaimmassa jakotavassa.</p>
+		<p>
+			Parametri
+			<code>omenat</code>
+			on taulukko, joka sisältää omenoiden painot. Jokainen paino on kokonaisluku välillä 1..1000. Omenoiden määrä on välillä 1..15.
+		</p>
+		<p>
+			Metodin tulee palauttaa omenoiden yhteispainon ero parhaimmassa jakotavassa.
+		</p>
 
 		<h2>Esimerkit</h2>
 
 		<table>
 			<thead>
-				<tr><th>#</th><th>metodin kutsu</th><th>haluttu palautusarvo</th></tr>
+				<tr>
+					<th>#</th>
+					<th>metodin kutsu</th>
+					<th>haluttu palautusarvo</th>
+				</tr>
 			</thead>
 			<tbody>
-				<tr><td>1</td><td>jaaOmenat(new int[] {5, 3, 6, 2, 9})</td><td>1</td></tr>
-				<tr><td>2</td><td>jaaOmenat(new int[] {2, 2})</td><td>0</td></tr>
-				<tr><td>3</td><td>jaaOmenat(new int[] {999})</td><td>999</td></tr>
-				<tr><td>4</td><td>jaaOmenat(new int[] {999, 1, 1, 1})</td><td>996</td></tr>
+				<tr>
+					<td>1</td>
+					<td>
+						<code>jaaOmenat(new int[] {5, 3, 6, 2, 9})</code>
+					</td>
+					<td>
+						<code>1</code>
+					</td>
+				</tr>
+				<tr>
+					<td>2</td>
+					<td>
+						<code>jaaOmenat(new int[] {2, 2})</code>
+					</td>
+					<td>
+						<code>0</code>
+					</td>
+				</tr>
+				<tr>
+					<td>3</td>
+					<td>
+						<code>jaaOmenat(new int[] {999})</code>
+					</td>
+					<td>
+						<code>999</code>
+					</td>
+				</tr>
+				<tr>
+					<td>4</td>
+					<td>
+						<code>jaaOmenat(new int[] {999, 1, 1, 1})</code>
+					</td>
+					<td>
+						<code>996</code>
+					</td>
+				</tr>
 			</tbody>
 		</table>
 
@@ -221,23 +490,77 @@ title: Viikko 2
 
 		<h2>Toteutus</h2>
 
-		<p>Toteuta metodi: <code>long nopanheitot(int x)</code></p>
+		<p>
+			Toteuta metodi:
+			<code>long nopanheitot(int x)</code>
+		</p>
 
-		<p>Parametri x on Uolevin laskema silmälukujen summa. Parametri on positiivinen kokonaisluku.</p>
-		<p>Metodin tulee palauttaa mahdollisten heittosarjojen määrä. Voit olettaa, että tulos on enintään 1018.</p>
+		<p>
+			Parametri
+			<code>x</code>
+			on Uolevin laskema silmälukujen summa. Parametri on positiivinen kokonaisluku.
+		</p>
+		<p>
+			Metodin tulee palauttaa mahdollisten heittosarjojen määrä. Voit olettaa, että tulos on enintään 10 <sup>18</sup>
+			.
+		</p>
 
 		<h2>Esimerkit</h2>
 
 		<table>
 			<thead>
-				<tr><th>#</th><th>metodin kutsu</th><th>haluttu palautusarvo</th></tr>
+				<tr>
+					<th>#</th>
+					<th>metodin kutsu</th>
+					<th>haluttu palautusarvo</th>
+				</tr>
 			</thead>
 			<tbody>
-				<tr><td>1</td><td>nopanheitot(4)</td><td>8</td></tr>
-				<tr><td>2</td><td>nopanheitot(30)</td><td>437613522</td></tr>
-				<tr><td>3</td><td>nopanheitot(44)</td><td>6386990736226</td></tr>
-				<tr><td>4</td><td>nopanheitot(39)</td><td>207991012832</td></tr>
-				<tr><td>5</td><td>nopanheitot(60)</td><td>366861197229128136</td></tr>
+				<tr>
+					<td>1</td>
+					<td>
+						<code>nopanheitot(4)</code>
+					</td>
+					<td>
+						<code>8</code>
+					</td>
+				</tr>
+				<tr>
+					<td>2</td>
+					<td>
+						<code>nopanheitot(30)</code>
+					</td>
+					<td>
+						<code>437613522</code>
+					</td>
+				</tr>
+				<tr>
+					<td>3</td>
+					<td>
+						<code>nopanheitot(44)</code>
+					</td>
+					<td>
+						<code>6386990736226</code>
+					</td>
+				</tr>
+				<tr>
+					<td>4</td>
+					<td>
+						<code>nopanheitot(39)</code>
+					</td>
+					<td>
+						<code>207991012832</code>
+					</td>
+				</tr>
+				<tr>
+					<td>5</td>
+					<td>
+						<code>nopanheitot(60)</code>
+					</td>
+					<td>
+						<code>366861197229128136</code>
+					</td>
+				</tr>
 			</tbody>
 		</table>
 

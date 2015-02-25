@@ -1,0 +1,640 @@
+---
+layout: material
+title: Viikko 4
+---
+<p> <strong>Viikon teemana on linkitetty lista ja pinorakenteen soveltaminen ongelmien ratkaisuun.</strong> 
+</p>
+<div class="exercise" id="t1">
+
+	<header>
+		<h1>Tehtävä 1</h1>
+	</header>
+
+	<div>
+
+		<h2>Toteutus</h2>
+
+		<p>
+			Tehtäväpohjan mukana tulee luokka
+			<code>Node</code>
+			, joka esittää yhteen suuntaan linkitetyn listan solmua.
+		</p>
+		<p>
+			Toteuta luokkaan
+			<code>Operaatioita</code>
+			seuraavat metodit:
+		</p>
+		<ul>
+			<li>
+				<code>Node reverse(Node root)</code>
+				kääntää listan, jonka juurisolmu annetaan ja palauttaa käännetyn listan juurialkion.
+			</li>
+			<li>
+				<code>Node cut(Node root, int i)</code>
+				katkaisee linkin listan
+				<code>(i-1)</code>
+				:nnen ja
+				<code>i</code>
+				:nnen solmujen väliltä. Metodi palauttaa
+				<code>i</code>
+				:nnen solmun, joka on juuri katkaisussa syntyvälle alkuperäisen listan loppuosalle. <b>Jos
+					<code>i=0</code>
+					, niin metodin on palautettava alkuperäinen lista muuttumattomana.</b> 
+			</li>
+		</ul>
+
+		<h2>Esimerkit</h2>
+		{% highlight java %}
+// Rakennetaan lista [6,7,8,9,10]
+Node root = new Node(6, new Node(7, new Node(8, new Node(9, new Node(10)))));
+// Katkaistaan indeksistä 2
+Node loppu_root = Operaatioita.cut(lista, 2);
+// Nyt loppu_root on [8,9,10] ja root on [6,7]
+		{% endhighlight %}
+		<p> <strong>Huom!</strong>
+			Kummankaan metodin ei tule allokoida uusia solmuja, vaan annetun listan solmut tulee uudelleenkäyttää! Kummassakaan metodissa ei siis tarvitse olla yhtään
+			<code>new Node</code>
+			-kutsua!
+		</p>
+		<p>
+			<strong>Huom!</strong>
+			Testit testaavat että pitkänkin listan kääntämiseen menee alle 20ms.
+		</p>
+	</div>
+</div>
+<div class="exercise" id="t2">
+
+	<header>
+		<h1>Tehtävä 2</h1>
+	</header>
+
+	<div>
+
+		<p>
+			Tehtäväsi on toteuttaa pinolaskin,
+        joka suorittaa annetun ohjelman.
+        Pinoa voi käsitellä vain sen lopusta
+        (oikealta puolelta).
+        Aluksi pinossa on luku 1.
+        Ohjelman komennot suoritetaan järjestyksessä,
+        ja mahdolliset komennot ovat:
+		</p>
+
+		<ul>
+			<li>
+				<code>@</code>
+				: lisää pinoon kopio pinon viimeisestä luvusta
+			</li>
+			<li>
+				<code>+</code>
+				: poista pinon kaksi viimeistä lukua ja lisää niiden summa pinoon
+			</li>
+			<li>
+				<code>*</code>
+				: poista pinon kaksi viimeistä lukua ja lisää niiden tulo pinoon
+			</li>
+		</ul>
+
+		<p>
+			Esimerkiksi ohjelma
+			<code>@@+@*</code>
+			suoritetaan näin:
+		</p>
+
+		<ol>
+			<li>Aluksi pinon sisältö on [1].</li>
+			<li>
+				Komennon
+				<code>@</code>
+				jälkeen sisältö on [1, 1].
+			</li>
+			<li>
+				Komennon
+				<code>@</code>
+				jälkeen sisältö on [1, 1, 1].
+			</li>
+			<li>
+				Komennon
+				<code>+</code>
+				jälkeen sisältö on [1, 2].
+			</li>
+			<li>
+				Komennon
+				<code>@</code>
+				jälkeen sisältö on [1, 2, 2].
+			</li>
+			<li>
+				Komennon
+				<code>*</code>
+				jälkeen sisältö on [1, 4].
+			</li>
+		</ol>
+
+		<p>
+			Tehtäväsi on suorittaa annettu ohjelma ja palauttaa
+                pinon viimeinen luku ohjelman suorituksen jälkeen.
+		</p>
+
+		<h2>Toteutus</h2>
+
+		<p>
+			Toteuta metodi:
+			<code>int laskin(String ohjelma)</code>
+		</p>
+
+		<p>
+			Parametri
+			<code>ohjelma</code>
+			on suoritettava ohjelma.
+                Se muodostuu merkeistä
+			<code>@</code>
+			,
+			<code>+</code>
+			ja
+			<code>*</code>
+			,
+                ja sen pituus on 1..10 <sup>5</sup>
+			merkkiä.
+		</p>
+
+		<p>
+			Metodin tulee palauttaa pinon viimeinen luku
+                ohjelman suorituksen jälkeen.
+                Voit olettaa, että kaikki pinossa ohjelman
+                suorituksen aikana olevat luvut,
+                mukaan lukien viimeinen luku,
+                ovat välillä 1..10 <sup>9</sup>
+			.
+		</p>
+
+		<h2>Esimerkit</h2>
+
+		<table>
+			<thead>
+				<tr>
+					<th>#</th>
+					<th>metodin kutsu</th>
+					<th>haluttu palautusarvo</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>1</td>
+					<td>
+						<code>laskin("@@+@*")</code>
+					</td>
+					<td>
+						<code>4</code>
+					</td>
+				</tr>
+				<tr>
+					<td>2</td>
+					<td>
+						<code>laskin("@+")</code>
+					</td>
+					<td>
+						<code>2</code>
+					</td>
+				</tr>
+				<tr>
+					<td>3</td>
+					<td>
+						<code>laskin("@@**")</code>
+					</td>
+					<td>
+						<code>1</code>
+					</td>
+				</tr>
+				<tr>
+					<td>4</td>
+					<td>
+						<code>laskin("@+@+@+")</code>
+					</td>
+					<td>
+						<code>8</code>
+					</td>
+				</tr>
+				<tr>
+					<td>5</td>
+					<td>
+						<code>laskin("@@@+++")</code>
+					</td>
+					<td>
+						<code>4</code>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+<div class="exercise" id="t3">
+
+	<header>
+		<h1>Tehtävä 3</h1>
+	</header>
+
+	<div>
+
+		<p>
+			Sinulle on annettu merkkijono, joka muodostuu merkeistä
+			<code>A</code>
+			ja
+			<code>B</code>
+			.
+                Saat poistaa merkkijonosta merkkipareja,
+                joissa on kaksi samaa merkkiä peräkkäin,
+                ja jatkaa tätä niin kauan kuin mahdollista.
+                Pystytkö tyhjentämään merkkijonon
+                poistamalla sen kaikki merkit?
+		</p>
+
+		<p>
+			Esimerkiksi jos merkkijono on
+			<code>ABBABB</code>
+			,
+                tyhjentäminen on mahdollista.
+                Voit poistaa ensin ensimmäisen merkkiparin
+			<code>BB</code>
+			,
+                jolloin tuloksena on
+			<code>AABB</code>
+			.
+                Tämän jälkeen voit poistaa merkkiparin
+			<code>AA</code>
+			,
+                jolloin tuloksena on
+			<code>BB</code>
+			,
+                ja lopulta merkkiparin
+			<code>BB</code>
+			,
+                jolloin olet saanut tyhjennettyä merkkijonon.
+		</p>
+
+		<p>
+			Vastaavasti merkkijonon
+			<code>ABABAB</code>
+			tyhjentäminen ei ole mahdollista,
+                koska siitä ei pysty poistamaan edes yhtä merkkiparia.
+		</p>
+
+		<h2>Toteutus</h2>
+
+		<p>
+			Toteuta metodi:
+			<code>bool tyhjennys(String mjono)</code>
+		</p>
+
+		<p>
+			Parametri
+			<code>mjono</code>
+			on merkkijono,
+                joka koostuu merkeistä
+			<code>A</code>
+			ja
+			<code>B</code>
+			.
+                Merkkijonon pituus on välillä 1..10
+			<sup>5</sup>
+			.
+		</p>
+
+		<p>
+			Metodin tulee palauttaa
+			<code>true</code>
+			,
+                jos merkkijono on mahdollista tyhjentää,
+                ja muuten
+			<code>false</code>
+			.
+		</p>
+
+		<h2>Esimerkit</h2>
+
+		<table>
+			<thead>
+				<tr>
+					<th>#</th>
+					<th>metodin kutsu</th>
+					<th>haluttu palautusarvo</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>1</td>
+					<td>
+						<code>tyhjennys("ABBABB")</code>
+					</td>
+					<td>
+						<code>true</code>
+					</td>
+				</tr>
+				<tr>
+					<td>2</td>
+					<td>
+						<code>tyhjennys("ABBBBB")</code>
+					</td>
+					<td>
+						<code>false</code>
+					</td>
+				</tr>
+				<tr>
+					<td>3</td>
+					<td>
+						<code>tyhjennys("AAAAAA")</code>
+					</td>
+					<td>
+						<code>true</code>
+					</td>
+				</tr>
+				<tr>
+					<td>4</td>
+					<td>
+						<code>tyhjennys("ABABAB")</code>
+					</td>
+					<td>
+						<code>false</code>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+<div class="exercise" id="t4">
+
+	<header>
+		<h1>Tehtävä 4</h1>
+	</header>
+
+	<div>
+
+		<p>
+			Junaradan vasemmassa laidassa on <i>n</i>
+			vaunua,
+                jotka on numeroitu kokonaisluvuin 1.. <i>n</i>
+			.
+                Vaunut voivat olla missä tahansa järjestyksessä.
+                Tehtäväsi on siirtää vaunut radan oikeaan laitaan niin,
+                että ne ovat oikeassa järjestyksessä.
+		</p>
+
+		<p>
+			Saat siirtää vaunuja vain oikealle,
+                mutta pystyt vaihtamaan vaunujen järjestystä,
+                koska rata haarautuu kahteen osaan:
+		</p>
+
+		<pre>     /-----\
+-----       -----
+     \-----/
+                     </pre>
+
+		<p>
+			Sekä radan vasempaan ja oikeaan laitaan että
+                molempiin keskiosiin mahtuu rajattomasti vaunuja.
+                Onko tehtäväsi mahdollinen?
+		</p>
+
+		<p>Esimerkiksi tilanteessa</p>
+
+		<pre>     /-----\
+1324-       -----
+     \-----/
+                     </pre>
+
+		<p>siirtäminen on mahdollista seuraavasti:</p>
+
+		<ol>
+			<li>
+				Vaunu 4 siirretään oikeaan laitaan
+                    jommankumman haaran kautta:
+				<pre>     /-----\
+132--       ----4
+     \-----/
+                         </pre>
+			</li>
+			<li>
+				Vaunu 2 siirretään odottamaan ylempään haaraan:
+				<pre>     /---2-\
+13---       ----4
+     \-----/
+                         </pre>
+			</li>
+			<li>
+				Vaunu 3 siirretään oikeaan laitaan alahaaran kautta:
+				<pre>     /---2-\
+1----       ---34
+     \-----/
+                         </pre>
+			</li>
+			<li>
+				Vaunu 2 siirretään ylähaarasta oikeaan laitaan:
+				<pre>     /-----\
+1----       --234
+     \-----/
+                         </pre>
+			</li>
+			<li>
+				Vaunu 1 siirretään oikeaan laitaan jommankumman haaran kautta:
+				<pre>     /-----\
+-----       -1234
+     \-----/
+                         </pre>
+			</li>
+		</ol>
+
+		<h2>Toteutus</h2>
+
+		<p>
+			Toteuta metodi:
+			<code>bool vaunusiirto(int[] vaunut)</code>
+		</p>
+
+		<p>
+			Taulukko
+			<code>vaunut</code>
+			sisältää vaunujen
+                    järjestyksen radan vasemmassa laidassa.
+                    Taulukossa on
+			<i>n</i>
+			lukua,
+                    ja jokainen luku 1..
+			<i>n</i>
+			esiintyy tasan kerran.
+                    Luku
+			<i>n</i>
+			on välillä 1..10
+			<sup>5</sup>
+			.
+		</p>
+		<p>
+			Metodin tulee palauttaa
+			<code>true</code>
+			,
+                    jos vaunujen järjestäminen on mahdollista,
+                    ja muuten
+			<code>false</code>
+			.
+		</p>
+
+		<h2>Esimerkit</h2>
+
+		<table>
+			<thead>
+				<tr>
+					<th>#</th>
+					<th>metodin kutsu</th>
+					<th>haluttu palautusarvo</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>1</td>
+					<td>
+						<code>vaunusiirto(new int[] {1, 2, 3, 4})</code>
+					</td>
+					<td>
+						<code>true</code>
+					</td>
+				</tr>
+				<tr>
+					<td>2</td>
+					<td>
+						<code>vaunusiirto(new int[] {1, 3, 2, 4})</code>
+					</td>
+					<td>
+						<code>true</code>
+					</td>
+				</tr>
+				<tr>
+					<td>3</td>
+					<td>
+						<code>vaunusiirto(new int[] {4, 1, 2, 3})</code>
+					</td>
+					<td>
+						<code>true</code>
+					</td>
+				</tr>
+				<tr>
+					<td>4</td>
+					<td>
+						<code>vaunusiirto(new int[] {4, 3, 2, 1})</code>
+					</td>
+					<td>
+						<code>false</code>
+					</td>
+				</tr>
+				<tr>
+					<td>5</td>
+					<td>
+						<code>vaunusiirto(new int[] {4, 1, 3, 2})</code>
+					</td>
+					<td>
+						<code>false</code>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+<div class="exercise" id="t5">
+
+	<header>
+		<h1>Tehtävä 5</h1>
+	</header>
+
+	<div>
+
+		<p>
+			Sinulle on annettu taulukko kokonaislukuja,
+                    ja tehtäväsi on etsiä jokaiselle luvulle
+                    seuraava suurempi luku taulukossa.
+		</p>
+
+		<p>
+			Muodosta uusi taulukko, jonka jokainen arvo
+                    on annetun taulukon luvun seuraava suurempi luku.
+                    Jos suurempaa lukua ei ole, arvon tulee olla 0.
+		</p>
+
+		<p>
+			Esimerkiksi taulukosta {1, 5, 2, 4, 3}
+                    syntyy uusi taulukko {5, 0, 4, 0, 0}.
+		</p>
+
+		<h2>Toteutus</h2>
+
+		<p>
+			Toteuta metodi:
+			<code>int[] suuremmat(int[] luvut)</code>
+		</p>
+
+		<p>
+			Taulukko
+			<code>luvut</code>
+			sisältää 1..10
+			<sup>5</sup>
+			kokonaislukua,
+                    joista jokainen on välillä 1..10
+			<sup>9</sup>
+			.
+                    Sama luku voi esiintyä taulukossa monta kertaa.
+		</p>
+
+		<p>
+			Metodin tulee palauttaa taulukko, joka sisältää jokaisesta
+                    luvusta seuraavan suuremman luvun tai arvon 0,
+                    jos suurempaa lukua ei ole olemassa.
+		</p>
+
+		<h2>Esimerkit</h2>
+
+		<table>
+			<thead>
+				<tr>
+					<th>#</th>
+					<th>metodin kutsu</th>
+					<th>haluttu palautusarvo</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>1</td>
+					<td>
+						<code>suuremmat(new int[] {1, 2, 3, 4, 5})</code>
+					</td>
+					<td>
+						<code>{2, 3, 4, 5, 0}</code>
+					</td>
+				</tr>
+				<tr>
+					<td>2</td>
+					<td>
+						<code>suuremmat(new int[] {5, 4, 3, 2, 1})</code>
+					</td>
+					<td>
+						<code>{0, 0, 0, 0, 0}</code>
+					</td>
+				</tr>
+				<tr>
+					<td>3</td>
+					<td>
+						<code>suuremmat(new int[] {4, 3, 2, 1, 5})</code>
+					</td>
+					<td>
+						<code>{5, 5, 5, 5, 0}</code>
+					</td>
+				</tr>
+				<tr>
+					<td>4</td>
+					<td>
+						<code>suuremmat(new int[] {1, 5, 2, 4, 3})</code>
+					</td>
+					<td>
+						<code>{5, 0, 4, 0, 0}</code>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>

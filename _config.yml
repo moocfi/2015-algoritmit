@@ -1,5 +1,5 @@
 # Site settings
-title: Algomooc materiaali – MOOC.fi
+title: AlgoMOOC materiaali 2015 – MOOC.fi
 description: ""
 baseurl: "/algomooc"
 url: "http://mooc.fi" 
@@ -10,3 +10,7 @@ markdown: kramdown
 navigation:
   "Viikko 1": "/viikko1.html"
   "Viikko 2": "/viikko2.html"
+  "Viikko 3": "/viikko3.html"
+  "Viikko 4": "/viikko4.html"
+  "Viikko 5": "/viikko5.html"
+  "Viikko 6": "/viikko6.html"

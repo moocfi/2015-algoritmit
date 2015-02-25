@@ -1,0 +1,551 @@
+---
+layout: material
+title: Viikko 3
+---
+<p> <strong>Tehtävissä SAA käyttää Javan valmiita järjestämismetodeita!</strong>
+</p>
+
+<div class="exercise"  id="t1">
+
+	<header>
+		<h1>Tehtävä 1</h1>
+	</header>
+
+	<div>
+
+		<p>
+			Sinulle on annettu taulukko kokonaislukuja,
+        ja tehtäväsi on selvittää pienin etäisyys
+        kahden luvun välillä.
+		</p>
+
+		<p>
+			Esimerkiksi taulukossa {4, 1, 6, 2}
+        pienin etäisyys on 1,
+        koska lukujen 1 ja 2 etäisyys on 1.
+		</p>
+
+		<h2>Toteutus</h2>
+
+		<p>
+			Toteuta metodi:
+			<code>int pieninEtaisyys(int[] luvut)</code>
+		</p>
+
+		<p>
+			Parametri
+			<code>luvut</code>
+			on taulukko,
+        joka sisältää 2..10 <sup>5</sup>
+			lukua.
+        Jokainen luku on kokonaisluku välillä –10 <sup>9</sup>
+			..10
+			<sup>9</sup>
+			.
+		</p>
+
+		<p>
+			Metodin tulee palauttaa
+        pienin etäisyys kahden taulukon luvun välillä.
+		</p>
+
+		<h2>Esimerkit</h2>
+
+		<table>
+			<thead>
+				<tr>
+					<th>#</th>
+					<th>metodin kutsu</th>
+					<th>haluttu palautusarvo</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>1</td>
+					<td>
+						<code>pieninEtaisyys(new int[] {4, 1, 6, 2})</code>
+					</td>
+					<td>
+						<code>1</code>
+					</td>
+				</tr>
+				<tr>
+					<td>2</td>
+					<td>
+						<code>pieninEtaisyys(new int[] {3, 1, 5, 1})</code>
+					</td>
+					<td>
+						<code>0</code>
+					</td>
+				</tr>
+				<tr>
+					<td>3</td>
+					<td>
+						<code>pieninEtaisyys(new int[] {2, 60})</code>
+					</td>
+					<td>
+						<code>58</code>
+					</td>
+				</tr>
+				<tr>
+					<td>4</td>
+					<td>
+						<code>pieninEtaisyys(new int[] {-1000, 1001, 0})</code>
+					</td>
+					<td>
+						<code>1000</code>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+
+<div class="exercise"  id="t2">
+
+	<header>
+		<h1>Tehtävä 2</h1>
+	</header>
+
+	<div>
+
+		<p>
+			Sinulle on annettu taulukko kokonaislukuja,
+        ja tiedät, että yli puolet taulukon luvuista on samoja.
+        Tehtäväsi on selvittää tämä yleisin luku.
+		</p>
+
+		<p>
+			Esimerkiksi taulukossa {4, 1, 1, 2, 1}
+        yleisin luku on 1.
+		</p>
+
+		<h2>Toteutus</h2>
+
+		<p>
+			Toteuta metodi:
+			<code>int yleisinLuku(int[] luvut)</code>
+		</p>
+
+		<p>
+			Parametri
+			<code>luvut</code>
+			on taulukko,
+        joka sisältää 1..10
+			<sup>5</sup>
+			lukua.
+        Jokainen luku on kokonaisluku välillä –10
+			<sup>9</sup>
+			..10
+			<sup>9</sup>
+			.
+		</p>
+
+		<p>
+			Metodin tulee palauttaa taulukon yleisin luku.
+        Tämä on yksikäsitteinen,
+        koska yli puolet taulukon luvuista on samoja.
+		</p>
+
+		<h2>Esimerkit</h2>
+
+		<table>
+			<thead>
+				<tr>
+					<th>#</th>
+					<th>metodin kutsu</th>
+					<th>haluttu palautusarvo</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>1</td>
+					<td>
+						<code>yleisinLuku(new int[] {4, 1, 1, 2, 1})</code>
+					</td>
+					<td>
+						<code>1</code>
+					</td>
+				</tr>
+				<tr>
+					<td>2</td>
+					<td>
+						<code>yleisinLuku(new int[] {5, 5, 5, 2})</code>
+					</td>
+					<td>
+						<code>5</code>
+					</td>
+				</tr>
+				<tr>
+					<td>3</td>
+					<td>
+						<code>yleisinLuku(new int[] {5, 5, 5, 5})</code>
+					</td>
+					<td>
+						<code>5</code>
+					</td>
+				</tr>
+				<tr>
+					<td>4</td>
+					<td>
+						<code>yleisinLuku(new int[] {1, 2, 2})</code>
+					</td>
+					<td>
+						<code>2</code>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+
+<div class="exercise"  id="t3">
+
+	<header>
+		<h1>Tehtävä 3</h1>
+	</header>
+
+	<div>
+
+		<p>
+			Sinulle on annettu taulukko kokonaislukuja,
+        ja tehtäväsi on muuttaa lukuja niin,
+        että mikään luku ei esiinny taulukossa kahta kertaa.
+		</p>
+
+		<p>
+			Saat kasvattaa jokaista lukua haluamasi
+        verran (myös ei yhtään).
+        Et saa kuitenkaan pienentää mitään lukua.
+        Tehtäväsi on etsiä ratkaisu,
+        jossa kokonaiskasvatus on mahdollisimman pieni.
+		</p>
+
+		<p>
+			Esimerkiksi jos taulukko on {2, 3, 2, 3},
+        yksi optimiratkaisu on muuttaa se muotoon
+        {2, 5, 4, 3}.
+        Muutokset ovat {0, +2, +2, 0},
+        joten kokonaiskasvatus on 4.
+		</p>
+
+		<h2>Toteutus</h2>
+
+		<p>
+			Toteuta metodi:
+			<code>long pieninKasvatus(int[] luvut)</code>
+		</p>
+		<p>
+			Parametri
+			<code>luvut</code>
+			on taulukko,
+        joka sisältää 1..10
+			<sup>5</sup>
+			lukua.
+        Jokainen luku on kokonaisluku välillä –10
+			<sup>9</sup>
+			..10
+			<sup>9</sup>
+			.
+		</p>
+
+		<p>
+			Metodin tulee palauttaa 
+        pienin kokonaiskasvatus,
+        jonka jälkeen jokainen taulukon 
+        luku on on eri luku.
+		</p>
+
+		<h2>Esimerkit</h2>
+
+		<table>
+			<thead>
+				<tr>
+					<th>#</th>
+					<th>metodin kutsu</th>
+					<th>haluttu palautusarvo</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>1</td>
+					<td>
+						<code>pieninKasvatus(new int[] {2, 3, 2, 3})</code>
+					</td>
+					<td>
+						<code>4</code>
+					</td>
+				</tr>
+				<tr>
+					<td>2</td>
+					<td>
+						<code>pieninKasvatus(new int[] {2, 2, 2, 2})</code>
+					</td>
+					<td>
+						<code>6</code>
+					</td>
+				</tr>
+				<tr>
+					<td>3</td>
+					<td>
+						<code>pieninKasvatus(new int[] {2, 4, 1, 7})</code>
+					</td>
+					<td>
+						<code>0</code>
+					</td>
+				</tr>
+				<tr>
+					<td>4</td>
+					<td>
+						<code>pieninKasvatus(new int[] {3, 1, 2, 1, 1})</code>
+					</td>
+					<td>
+						<code>7</code>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+
+	</div>
+</div>
+
+<div class="exercise"  id="t4">
+
+	<header>
+		<h1>Tehtävä 4</h1>
+	</header>
+
+	<div>
+
+		<p>
+			Sinulla on tiedossa kaikki ravintolassa päivän aikana
+        käyneet henkilöt sekä heidän tulo- ja lähtöaikansa.
+        Tehtäväsi on laskea, montako asiakasta
+        ravintolassa oli enimmillään.
+		</p>
+
+		<p>
+			Voit olettaa, että yhtenä ajanhetkenä
+        vain yksi asiakas voi tulla tai lähteä.
+		</p>
+
+		<p>Tarkastellaan esimerkiksi seuraavaa tilannetta:</p>
+
+		<ul>
+			<li>Asiakas A tuli hetkellä 3 ja lähti hetkellä 8.</li>
+			<li>Asiakas B tuli hetkellä 4 ja lähti hetkellä 6.</li>
+			<li>Asiakas C tuli hetkellä 5 ja lähti hetkellä 10.</li>
+			<li>Asiakas D tuli hetkellä 9 ja lähti hetkellä 12.</li>
+		</ul>
+
+		<p>
+			Nyt ravintolassa oli enimmillään 3 asiakasta
+            (A, B ja C) hetkien 5 ja 6 välissä.
+		</p>
+
+		<h2>Toteutus</h2>
+
+		<p>
+			Toteuta metodi:
+			<code>int ennatys(int[] tulot, int[] lahdot)</code>
+		</p>
+
+		<p>
+			Parametri
+			<code>tulot</code>
+			on taulukko,
+            joka sisältää jokaisen asiakkaan tuloajan.
+            Jokainen aika on kokonaisluku välillä 0..10
+			<sup>9</sup>
+			.
+		</p>
+
+		<p>
+			Parametri
+			<code>lahdot</code>
+			on taulukko,
+            joka sisältää jokaisen asiakkaan lähtöajan.
+            Jokainen aika on kokonaisluku välillä 0..10
+			<sup>9</sup>
+			.
+		</p>
+
+		<p>
+			Taulukot
+			<code>tulot</code>
+			ja
+			<code>lahdot</code>
+			sisältävät yhtä monta lukua,
+            ja asiakkaiden määrä on välillä 1..10
+			<sup>5</sup>
+			.
+            Luonnollisesti asiakas ei koskaan lähde ravintolasta
+            ennen kuin hän on tullut sinne.
+		</p>
+
+		<p>
+			Metodin tulee palauttaa suurin asiakkaiden määrä ravintolassa.
+		</p>
+
+		<h2>Esimerkit</h2>
+
+		<table>
+			<thead>
+				<tr>
+					<th>#</th>
+					<th>metodin kutsu</th>
+					<th>haluttu palautusarvo</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>1</td>
+					<td>
+						<code>ennatys(new int[] {3, 4, 5, 9}, new int[] {8, 6, 10, 12})</code>
+					</td>
+					<td>
+						<code>3</code>
+					</td>
+				</tr>
+				<tr>
+					<td>2</td>
+					<td>
+						<code>ennatys(new int[] {3, 2, 10, 1}, new int[] {8, 9, 20, 5})</code>
+					</td>
+					<td>
+						<code>3</code>
+					</td>
+				</tr>
+				<tr>
+					<td>3</td>
+					<td>
+						<code>ennatys(new int[] {1, 3, 5}, new int[] {2, 4, 6})</code>
+					</td>
+					<td>
+						<code>1</code>
+					</td>
+				</tr>
+				<tr>
+					<td>4</td>
+					<td>
+						<code>ennatys(new int[] {100, 999}, new int[] {1000, 1001})</code>
+					</td>
+					<td>
+						<code>2</code>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+
+	</div>
+</div>
+
+<div class="exercise"  id="t5">
+
+	<header>
+		<h1>Tehtävä 5</h1>
+	</header>
+
+	<div>
+
+		<p>
+			Sinulle on annettu taulukko kokonaislukuja,
+            ja tehtäväsi on muuttaa lukuja niin,
+            että jokainen taulukon luku on sama.
+		</p>
+
+		<p>
+			Saat kasvattaa tai vähentää jokaista lukua haluamasi
+            verran (myös ei yhtään).
+            Tehtäväsi on etsiä ratkaisu,
+            jossa kokonaismuutos on mahdollisimman pieni.
+		</p>
+
+		<p>
+			Esimerkiksi jos taulukko on <code>{1, 7, 3, 4}</code>,
+            yksi optimiratkaisu on muuttaa se muotoon
+            <code>{3, 3, 3, 3}</code>.
+            Muutokset ovat <code>{+2, -4, 0, -1}</code>,
+            joten kokonaismuutos on 7.
+		</p>
+
+		<h2>Toteutus</h2>
+
+		<p>
+			Toteuta metodi:
+			<code>long pieninMuutos(int[] luvut)</code>
+		</p>
+
+		<p>
+			Parametri
+			<code>luvut</code>
+			on taulukko,
+            joka sisältää 1..10
+			<sup>5</sup>
+			lukua.
+            Jokainen luku on kokonaisluku välillä –10
+			<sup>9</sup>
+			..10
+			<sup>9</sup>
+			.
+		</p>
+
+		<p>
+			Metodin tulee palauttaa 
+            pienin kokonaismuutos,
+            jonka jälkeen jokainen taulukon 
+            luku on on sama luku.
+		</p>
+
+		<h2>Esimerkit</h2>
+
+		<table>
+			<thead>
+				<tr>
+					<th>#</th>
+					<th>metodin kutsu</th>
+					<th>haluttu palautusarvo</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>1</td>
+					<td>
+						<code>pieninMuutos(new int[] {1, 7, 3, 4})</code>
+					</td>
+					<td>
+						<code>7</code>
+					</td>
+				</tr>
+				<tr>
+					<td>2</td>
+					<td>
+						<code>pieninMuutos(new int[] {1, 2, 1, 2})</code>
+					</td>
+					<td>
+						<code>2</code>
+					</td>
+				</tr>
+				<tr>
+					<td>3</td>
+					<td>
+						<code>pieninMuutos(new int[] {7, 7, 7, 7})</code>
+					</td>
+					<td>
+						<code>0</code>
+					</td>
+				</tr>
+				<tr>
+					<td>4</td>
+					<td>
+						<code>pieninMuutos(new int[] {1, 1, 1, 100, 1})</code>
+					</td>
+					<td>
+						<code>99</code>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+
+	</div>
+</div>

@@ -1,0 +1,368 @@
+---
+layout: material
+title: Viikko 6
+---
+<p>
+	Viikon teemana on erilasiten metodien toteuttaminen binääripuille. <strong>Rekursiosta on erittäin paljon hyötyä!</strong>
+	<a href="viikko6-puu-esimerkki.html" target="_blank">Mahdollisesti hyödyllienen esimerkki.</a>
+</p>
+
+<div class="exercise" id="t1">
+
+	<header>
+		<h1>Tehtävä 1</h1>
+	</header>
+
+	<div>
+
+		<p>
+			Sinulle on annettu binääripuu
+ja tehtäväsi on laskea,
+montako kertaa arvo <i>x</i>
+			esiintyy puussa.
+		</p>
+
+		<h2>Toteutus</h2>
+
+		<p>
+			Toteuta metodi:
+			<code>int laskeArvot(Puu puu, int x)</code>
+		</p>
+
+		<p>
+			Parametri
+			<code>puu</code>
+			on binääripuu,
+jossa on 1..10 <sup>5</sup>
+			solmua.
+Parametri
+			<code>x</code>
+			on etsittävä arvo.
+		</p>
+
+		<p>
+			Metodin tulee palauttaa,
+montako kertaa
+			<code>x</code>
+			esiintyy puussa.
+		</p>
+
+		<h2>Esimerkit</h2>
+		{% highlight java %}
+Puu puu = new Puu(1,
+                  new Puu(3,
+                          new Puu(2, null, null),
+                          null),
+                  new Puu(3,
+                          new Puu(3, null, null),
+                          new Puu(2, null, null)));
+
+System.out.println(laskeArvot(puu, 1));
+System.out.println(laskeArvot(puu, 2));
+System.out.println(laskeArvot(puu, 3));
+		{% endhighlight %}
+		<p>Koodin tulostuksen tulisi olla seuraava:</p>
+		{% highlight text %}
+1
+2
+3
+		{% endhighlight %}
+	</div>
+</div>
+<div class="exercise" id="t2">
+
+	<header>
+		<h1>Tehtävä 2</h1>
+	</header>
+
+	<div>
+
+		<p>
+			Sinulle on annettu binääripuu
+ja tehtäväsi on tutkia,
+onko puu täydellinen,
+eli onko jokainen polku juuresta
+alaspäin yhtä pitkä.
+		</p>
+
+		<h2>Toteutus</h2>
+
+		<p>
+			Toteuta metodi:
+			<code>boolean taydellinen(Puu puu)</code>
+		</p>
+
+		<p>
+			Parametri
+			<code>puu</code>
+			on binääripuu,
+jossa on 1..10 <sup>5</sup>
+			solmua.
+		</p>
+
+		<p>
+			Metodin tulee palauttaa
+			<code>true</code>
+			, jos puu on täydellinen,
+ja muuten
+			<code>false</code>
+			.
+		</p>
+
+		<h2>Esimerkit</h2>
+
+		<p>Seuraava koodi testaa metodia:</p>
+		{% highlight java %}
+Puu puu = new Puu(1,
+                  new Puu(3,
+                          new Puu(2, null, null),
+                          new Puu(1, null, null)),
+                  new Puu(3,
+                          new Puu(3, null, null),
+                          new Puu(2, null, null)));
+
+System.out.println(taydellinen(puu));
+		{% endhighlight %}
+		<p>Koodin tulostuksen tulisi olla seuraava:</p>
+		{% highlight text %}
+true
+		{% endhighlight %}
+	</div>
+</div>
+<div class="exercise" id="t3">
+
+	<header>
+		<h1>Tehtävä 3</h1>
+	</header>
+
+	<div>
+
+		<p>
+			Sinulle on annettu kaksi binääripuuta,
+ja tehtäväsi on tutkia,
+ovatko puun samanlaiset
+eli onko puiden rakenne samanlainen
+ja onko niissä samat arvot kaikissa kohdissa.
+		</p>
+
+		<h2>Toteutus</h2>
+
+		<p>
+			Toteuta metodi:
+			<code>boolean samanlaiset(Puu a, Puu b)</code>
+		</p>
+
+		<p>
+			Parametrit
+			<code>a</code>
+			ja
+			<code>b</code>
+			ovat tutkittavat binääripuut.
+Molemmat sisältävät 1..10
+			<sup>5</sup>
+			solmua.
+		</p>
+
+		<p>
+			Metodin tulee palauttaa
+			<code>true</code>
+			, jos puut ovat samanlaiset,
+ja muuten
+			<code>false</code>
+			.
+		</p>
+
+		<h2>Esimerkit</h2>
+
+		<p>Seuraava koodi testaa metodia:</p>
+		{% highlight java %}
+Puu puu1 = new Puu(1,
+                   new Puu(3,
+                           new Puu(2, null, null),
+                           new Puu(1, null, null)),
+                   new Puu(3,
+                           new Puu(3, null, null),
+                           new Puu(2, null, null)));
+
+Puu puu2 = new Puu(1,
+                   new Puu(3,
+                           new Puu(2, null, null),
+                           new Puu(1, null, null)),
+                   new Puu(3,
+                           new Puu(3, null, null),
+                           new Puu(2, null, null)));
+        
+System.out.println(samanlaiset(puu1, puu2));
+		{% endhighlight %}
+		<p>Koodin tulostuksen tulisi olla seuraava:</p>
+		{% highlight text %}
+true
+		{% endhighlight %}
+	</div>
+</div>
+<div class="exercise" id="t4">
+
+	<header>
+		<h1>Tehtävä 4</h1>
+	</header>
+
+	<div>
+
+		<p>
+			Tiedetään, että puussa jokaisen solmuparin välillä on yksikäsitteinen polku, joka kulkee
+enintään kerran minkään solun läpi. Tehtävänäsi on etsiä pisin mahdollinen tällaisen polun
+pituus puusta, joka annetaan syötteenä.
+		</p>
+
+		<h2>Toteutus</h2>
+
+		<p>
+			Toteuta metodi:
+			<code>int pisinPolku(Puu puu)</code>
+		</p>
+
+		<p>
+			Parametri
+			<code>puu</code>
+			on binääripuu,
+jossa on 1..10
+			<sup>5</sup>
+			solmua.
+		</p>
+
+		<p>
+			Metodin tulee palauttaa
+pisimmän polun pituus jonkin
+kahden solmun välillä.
+		</p>
+
+		<h2>Esimerkit</h2>
+
+		<p>Seuraava koodi testaa metodia:</p>
+		{% highlight java %}
+Puu puu = new Puu(1,
+                  new Puu(3,
+                          new Puu(2, null, null),
+                          null),
+                  new Puu(3,
+                          new Puu(3, null, null),
+                          new Puu(2, null, null)));
+
+System.out.println(pisinPolku(puu));
+		{% endhighlight %}
+		<p>Koodin tulostuksen tulisi olla seuraava:</p>
+		{% highlight text %}
+		4
+		{% endhighlight %}
+	</div>
+</div>
+<div class="exercise" id="t5">
+
+	<header>
+		<h1>Tehtävä 5</h1>
+	</header>
+
+	<div>
+
+		<p>
+			Sinulle on annettu binääripuun esi- ja sisäjärjestys.
+Tehtäväsi on muodostaa niiden perusteella jälkijärjestys.
+		</p>
+
+		<p>
+			Esijärjestys käy ensin puun juuressa,
+sitten vasemmassa alipuussa ja lopuksi oikeassa alipuussa.
+Sisäjärjestys käy ensin vasemmassa alipuussa,
+sitten puun juuressa ja lopuksi oikeassa alipuussa.
+Jälkijärjestys käy ensin vasemmassa alipuussa,
+sitten oikeassa alipuussa ja lopuksi puun juuressa.
+		</p>
+
+		<p>Esimerkiksi binääripuuta</p>
+
+		<pre>
+     B
+    / \
+   D   A
+      / \
+     C   E
+		</pre>
+
+		<p>
+			vastaa esijärjestys BDACE, sisäjärjestys DBCAE ja
+jälkijärjestys DCEAB.
+		</p>
+
+		<h2>Toteutus</h2>
+
+		<p>
+			Toteuta metodi:
+			<code>String jalki(String esi, String sisa)</code>
+		</p>
+
+		<p>
+			Parametrit
+			<code>esi</code>
+			ja
+			<code>sisa</code>
+			kuvaavat binääripuun esi- ja sisäjärjestyksen.
+Binääripuussa on 1..26 solmua ja niiden tunnukset
+ovat suuret kirjaimet A:sta lähtien.
+		</p>
+
+		<p>
+			Metodin tulee palauttaa binääripuun jälkijärjestys
+vastaavassa muodossa.
+		</p>
+
+		<h2>Esimerkit</h2>
+
+		<table>
+			<thead>
+				<tr>
+					<th>#</th>
+					<th>metodin kutsu</th>
+					<th>haluttu palautusarvo</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>1</td>
+					<td>
+						<code>jalki("BDACE", "DBCAE")</code>
+					</td>
+					<td>
+						<code>"DCEAB"</code>
+					</td>
+				</tr>
+				<tr>
+					<td>2</td>
+					<td>
+						<code>jalki("ABCD", "DCBA")</code>
+					</td>
+					<td>
+						<code>"DCBA"</code>
+					</td>
+				</tr>
+				<tr>
+					<td>3</td>
+					<td>
+						<code>jalki("ABCD", "ACDB")</code>
+					</td>
+					<td>
+						<code>"DCBA"</code>
+					</td>
+				</tr>
+				<tr>
+					<td>4</td>
+					<td>
+						<code>jalki("GEABFCD", "AEBGCFD")</code>
+					</td>
+					<td>
+						<code>"ABECDFG"</code>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>

@@ -1,0 +1,328 @@
+---
+layout: material
+title: Esimerkki rekursiosta binääripuussa
+---
+<p>
+	Seuraavan esimerkin on tarkoitus valottaa, miten rekursiota voi käyttää viikon 6 TMC tehtävissä. Kutsumme solmusta s alkavaksi alipuuksi sitä alipuuta, joka sisältää solmun s lapset ja lapsenlapset jne.
+</p>
+
+<p>
+	Esimerkiksi jos merkitsemme solmua s seuraavassa kuvassa punaisella:
+	<pre>
+       0
+      / \
+     <FONT COLOR="FF0000">0</FONT>   0
+    / \   \
+   0   0   0
+  / \
+ 0   0 
+	</pre>
+	niin tällöin solmista s <i>alkava</i>
+	alipuu on seuraavanlainen (väritetty kokonaan punaisella):
+	<pre>
+       0
+      / \
+     <FONT COLOR="FF0000">0</FONT>   0
+    / \   \
+   <FONT COLOR="FF0000">0</FONT>   <FONT COLOR="FF0000">0</FONT>   0
+  / \
+ <FONT COLOR="FF0000">0</FONT>   <FONT COLOR="FF0000">0</FONT> 
+	</pre>
+
+</p>
+<p>
+	Jos taas s olisi seuraava solmu:
+	<pre>
+       0
+      / \
+     0   <FONT COLOR="FF0000">0</FONT>
+    / \   \
+   0   0   0
+  / \
+ 0   0 
+</pre>
+	niin solmusta s alkava alipuu olisi:
+	<pre>
+       0
+      / \
+     0   <FONT COLOR="FF0000">0</FONT>
+    / \   \
+   0   0   <FONT COLOR="FF0000">0</FONT>
+  / \
+ 0   0 
+</pre>
+
+</p>
+
+<hr>
+
+<p>
+	<h2>Puiden korkeudesta</h2>
+	Rekursiosta on erityisen paljon hyötyä toteuttaessa erilaisia metodeja binääripuille. Tässä esimerkissä katsotaan, miten binääripuun korkeuden laskeminen onnistuu rekursiolla. Meillä on käytössä viikon 6 TMC-pohjia vastaava toteutus puusta. Puu sisältää siis arvon, sekä viittauksen vasempaan ja oikeaan lapseensa.
+</p>
+
+<p>
+	Tarkastellaampa esimerkkiä, olkoon meillä seuraavanlainen puu:
+	<pre>
+       0
+      / \
+     0   0
+    / \   \
+   0   0   0
+  / \
+ 0   0 
+</pre>
+	Tämän puun kaikissa solmuissa arvo on 0, arvot voisivat olla jotain ihan muuta vaikuttamatta puun korkeuteen. Arvoja voi kuitenkin käyttää hyödyksi visualisoimaan tämän esimerkin pointtia: asetetaan ylläolevan puiden solmujen arvoksi näistä solmuista alkavan alipuun korkeus. Nyt puumme näyttää tältä:
+	<pre>
+       3
+      / \
+     2   1
+    / \   \
+   1   0   0
+  / \
+ 0   0 
+</pre>
+	Ylläolevasta visualisaation perusteella näyttäisi siltä, että puun korkeus on aina 1 + korkeamman alipuun (oikea/vasen) korkeus. Eli esimerkiksi kun tarkastellaan punaisella merkittyä solmua seuraavassa kuvassa:
+	<pre>
+       3
+      / \
+     <FONT COLOR="FF0000">2</FONT>   1
+    / \   \
+   1   0   0
+  / \
+ 0   0 
+</pre>
+	Sen vasemman alipuun korkeus on 1, oikean alipuun korkeus on 0 ja punaisesta solmusta alkavan alipuun korkeus on
+	<pre>max(1, 0) + 1 = 2.</pre>
+	Syy tähän on varsin luonnollinen, jos haluamme päästä juurisolmuun puun juuresta, niin joudumme ensin kulkemaan toisen sen alipuiden juurien kautta. Täten saamme siis puun korkeudelle seuraavan kaavan:
+	<pre>korkeus(puu) = max(korkeus(puu.vasen), korkeus(puu.oikea)) + 1.</pre>
+	Eli jos tiedämme puun kummankin alipuun korkeuden, niin voimme laskea itse puun korkeuden. Tässä rekursio astuu kuvaan.
+</p>
+
+<hr>
+<h2>Puun korkeuden laskeminen koodina</h2>
+<p>
+	Edellisen analyysin perusteella voisimme kuvitella, että puun korkeuden laskisi seuraava koodinpätkä:
+</p>
+{% highlight java %}
+public static int korkeus(Puu puu){
+    return 1 + Math.max(korkeus(puu.vasen), korkeus(puu.oikea));
+}
+{% endhighlight %}
+<p>
+	Kuitenkin jos koitat ajaa kyseistä koodia, niin huomaat ettei se toimi. Tämä johtuu siitä, että toinen rekursiivisen ratkaisun tärkeistä osista, <i>pohjatapaus</i>
+	, on jätetty kokonaan huomioimatta. Emme koskaan saa koskaan oikeasti laskettua yhdenkään alipuun korkeutta, vaan yritämme aina jokaisen solmun kohdalla laskea ensin sen lapsien alipuiden korkeudet. Tämä johtaa ongelmiin viimeistään siinä vaiheessa, kun yritämme laskea sellaisen alipuun korkeutta, jota ei ole olemassa. Sopiva pohjatapaus saadaan kun muistetaan, että
+	<i>lehtisolmusta alkavan alipuun korkeus on 0</i>
+	.
+</p>
+
+<p>
+	Eli nyt koodimme muuttuu muotoon
+	{% highlight java %}
+public static int korkeus(Puu puu){
+    if (puu.oikea == null && puu.vasen == null)
+        return 0;
+    return 1 + Math.max(korkeus(puu.vasen), korkeus(puu.oikea));
+}
+	{% endhighlight %}
+	joka on jo hyvin lähellä toimivaa versiota. Jos ainoastaan toinen puun alipuista on olemassa, niin koodimme yrittää kuitenkin laskea kummankin alipuun korkeudet. Tämä saadaan kierrettyä helposti lisäämällä sopivat tarkastukset:
+	{% highlight java %}
+public static int korkeus(Puu puu){
+    if (puu.oikea == null && puu.vasen == null) {
+        return 0;
+    }
+
+    int h_vasen = -1;
+    int h_oikea = -1;
+    
+    if (puu.vasen != null) {
+        h_vasen = korkeus(puu.vasen);
+    }
+
+    if (puu.oikea != null) {
+        h_oikea = korkeus(puu.oikea);
+    }
+
+    return 1 + Math.max(h_vasen, h_oikea);
+}
+	{% endhighlight %}
+	Tämä koodi tolella laskee puun korkeuden. Visualisoidaampa tämän koodin toimintaa esimerkkipuullamme. Asetetaan kaikkien solmujen arvoksi x ja muutetaan niitä vastaamaan aina kyseisestä solmusta alkavan alipuun korkeutta sitä mukaan kun saamme korkeudet laskettua. Tietyllä hetkellä käsiteltävää solmua merkitsemme punaisella värillä.
+</p>
+
+<p>
+	Seuraava visualisaatio on melko pitkä, mutta se toivottavasti avaa rekursion toimintaa.
+	<pre>
+<hr>
+1.
+       <FONT COLOR="FF0000">x</FONT>
+      / \
+     x   x
+    / \   \
+   x   x   x        Puun vasen alipuu on olemassa, lasketaan siis sen korkeus.
+  / \
+ x   x      
+<hr>
+2.
+       x
+      / \
+     <FONT COLOR="FF0000">x</FONT>   x
+    / \   \
+   x   x   x        Puun vasen alipuu on olemassa, lasketaan siis sen korkeus.
+  / \
+ x   x      
+<hr>
+3.
+       x
+      / \
+     x   x
+    / \   \
+   <FONT COLOR="FF0000">x</FONT>   x   x        Puun vasen alipuu on olemassa, lasketaan siis sen korkeus.
+  / \
+ x   x      
+<hr>
+4.
+       x
+      / \
+     x   x
+    / \   \
+   x   x   x        Puulla ei ole vasenta, eikä oikeaa alipuuta, joten sen korkeus on 0.
+  / \
+ <FONT COLOR="FF0000">x</FONT>   x   
+<hr>
+5.
+       x
+      / \
+     x   x
+    / \   \
+   <FONT COLOR="FF0000">x</FONT>   x   x        Puun oikea alipuu on olemassa, lasketaan siis sen korkeus.
+  / \
+ 0   x      
+<hr>
+6.
+       x
+      / \
+     x   x
+    / \   \
+   x   x   x        Puulla ei ole vasenta, eikä oikeaa alipuuta, joten sen korkeus on 0.
+  / \
+ 0   <FONT COLOR="FF0000">x</FONT>  
+<hr>
+7.
+       x
+      / \
+     x   x
+    / \   \
+   <FONT COLOR="FF0000">x</FONT>   x   x        Puun oikean ja vasemman alipuun korkeudet on laskettu, joten sen korkeus voidaan laskea.
+  / \
+ 0   0  
+<hr>
+8.
+       x
+      / \
+     <FONT COLOR="FF0000">x</FONT>   x
+    / \   \
+   1   x   x        Puun oikea alipuu on olemassa, lasketaan siis sen korkeus.
+  / \
+ 0   0  
+<hr>
+9.
+       x
+      / \
+     x   x
+    / \   \
+   1   <FONT COLOR="FF0000">x</FONT>   x        Puulla ei ole vasenta, eikä oikeaa alipuuta, joten sen korkeus on 0.
+  / \
+ 0   0  
+<hr>
+10.
+       x
+      / \
+     <FONT COLOR="FF0000">x</FONT>   x
+    / \   \
+   1   0   x        Puun oikean ja vasemman alipuun korkeudet on laskettu, joten sen korkeus voidaan laskea.
+  / \
+ 0   0  
+<hr>
+11.
+       <FONT COLOR="FF0000">x</FONT>
+      / \
+     2   x
+    / \   \
+   1   0   x        Puun oikea alipuu on olemassa, lasketaan siis sen korkeus.
+  / \
+ 0   0     
+<hr>
+12.
+       x
+      / \
+     2   <FONT COLOR="FF0000">x</FONT> 
+    / \   \
+   1   0   x        Puun vasenta alipuuta ei ole olemassa.
+  / \
+ 0   0  
+<hr>
+13.
+       x
+      / \
+     2   <FONT COLOR="FF0000">x</FONT> 
+    / \   \
+   1   0   x        Puun oikea alipuu on olemassa, lasketaan siis sen korkeus.
+  / \
+ 0   0  
+<hr>
+14.
+       x
+      / \
+     2   x 
+    / \   \
+   1   0   <FONT COLOR="FF0000">x</FONT>        Puulla ei ole vasenta, eikä oikeaa alipuuta, joten sen korkeus on 0.
+  / \
+ 0   0  
+<hr>
+15.
+       x
+      / \
+     2   <FONT COLOR="FF0000">x</FONT> 
+    / \   \
+   1   0   0        Puun oikean ja vasemman alipuun korkeudet on laskettu, joten sen korkeus voidaan laskea. 
+  / \               (Muista: vasemman alipuun korkeus on nyt -1, sillä sitä ei ollut olemassa!!!)
+ 0   0  
+<hr>
+16.
+       <FONT COLOR="FF0000">x</FONT>
+      / \
+     2   1
+    / \   \
+   1   0   0        Puun oikean ja vasemman alipuun korkeudet on laskettu, joten sen korkeus voidaan laskea. 
+  / \
+ 0   0  
+<hr>
+17.
+       3
+      / \
+     2   1
+    / \   \
+   1   0   0        Puun korkeuden laskeminen on saatu valmiiksi.
+  / \
+ 0   0  
+<hr></pre>
+</p>
+
+<h2>Mutta miten tämä hyödyttää viikon 6 TMC tehtävissä?</h2>
+<p>
+	Viikolla 6 ei ole (ainakaan suoraan) tehtävänä laskea binääripuun korkeutta. 
+Tämä tapa laskea puun korkeus tuo kuitenkin esille erittäin tärkeän ajattelutavan ja on siksi mielestäni hyödyllinen esimerkki. Laskemme puun korkeuden <strong>laskemalla ensin sen alipuiden korkeudet, ja alipuiden korkeuksien avulla saamme laskettua alkuperäisen puun korkeuden.</strong> 
+	Monet puuihin liittyvistä ongelmista rakteavatkin juuri tätä ajattelutapaa hyödyntäen, esimerkkeinä:
+</p>
+<ul>
+	<li>mikä on puun suurin/pienin arvo</li>
+	<li>mikä on puun arvojen summa</li>
+	<li>kuinka monta kertaa arvo x esiintyy puussa</li>
+</ul>
+<p>
+	Lukijan on syytä miettiä, miten yllämainitut ongelmat rakteavat rekursion avulla.
+Puutehtävää tehdessä kannattaa siis miettiä, voisiko kyseisen ongelman ratkaista ratkaisemalla ongelman ensin puun alipuille ja sitten niitä hyödyntäen alkuperäiselle puulle.
+</p>
+<p>
+	Vaikka rekursio saattaa vielä tuntua haastavalta tekniikalta, ei sen tärkeyttä algoritmeissa voi liioitella. Rekursion haastavuuteen, kuten vähän kaikkeen muuhunkin, auttaa yleensä harjoittelu. Ainakin TMC tehtävät 6.1 ja 6.3 kannattaa tehdä rekursiota hyväksikäyttäen, vaikka keksisitkin rekursiota käyttämättömän ratkaisun.
+</p>
