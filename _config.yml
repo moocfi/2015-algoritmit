@@ -1,7 +1,7 @@
 # Site settings
 title: AlgoMOOC materiaali 2015 – MOOC.fi
 description: ""
-baseurl: "/algomooc"
+baseurl: "/2015-algoritmit"
 url: "http://mooc.fi" 
 
 # Build settings
