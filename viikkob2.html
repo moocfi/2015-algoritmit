@@ -1,0 +1,358 @@
+---
+layout: material
+title: Bonus 2
+---
+<p>Tehtävät avautuvat kun olet tehnyt kaikki viikkojen 7-12 tehtävät.</p>
+<div class="exercise" id="t1">
+
+	<header>
+		<h1>Tehtävä 1</h1>
+	</header>
+
+	<div>
+
+		<p>
+			Talossa on hajonnut vesiputkia. Tehtävänäsi on laskea, kuinka kauan kestää, ennen kuin koko talo (kaikki lattiaruudut) on veden vallassa.
+		</p>
+
+		<p>
+			Talon pohjapiirros annetaan samassa muodossa kuin tehtävissä 2 ja 3 viikolla 9, mutta merkki P tarkoittaa hajonnutta putkea. Vesi etenee talossa niin, että jos tietyssä lattiaruudussa on vettä, seuraavalla kierroksella myös kaikissa ruudun naapuriruuduissa on vettä.
+		</p>
+
+		<h2>Toteutus</h2>
+
+		<p>
+			Toteuta metodi:
+			<code>int putkirikko(char[][] talo)</code>, joka laskee montako kierrosta menee kaikkien lattiaruutujen peittymiseen.
+		</p>
+
+		<p>
+			Voit olettaa, että hajonneista putkista on yhteys kaikkiin talon lattiaruutuihin.
+		</p>
+
+		<h2>Esimerkit</h2>
+
+		<h3>Esimerkki 1</h3>
+		<p>Seuraavalla pohjapiirroksella putkirikko leviää talon kaikkiin lattiaruutuihin viiden (5) kierroksen aikana.</p>
+		{% highlight text %}
+##########
+#.#...##.#
+#.#P#...P#
+#.....##.#
+##########
+		{% endhighlight %}
+
+		<p>Seuraavaan kuvaan on merkitty ajanhetket, joina vesi saavuttaa talon lattiaruudut yllä olevassa tapauksessa:</p>
+
+		{% highlight text %}
+##########
+#5#123##1#
+#4#P#321P#
+#32123##1#
+##########
+		{% endhighlight %}
+
+		<h3>Esimerkki 2</h3>
+		<p>Seuraavalla pohjapiirroksella putkirikko leviää talon kaikkiin lattiaruutuihin kahden (2) kierroksen aikana.</p>
+		{% highlight text %}
+##########
+#.#...##P#
+#.#P#P...#
+#P....##.#
+##########
+		{% endhighlight %}
+	</div>
+</div>
+<div class="exercise" id="t2">
+
+	<header>
+		<h1>Tehtävä 2</h1>
+	</header>
+
+	<div>
+
+		<h2>Toteutus</h2>
+
+		<p>Sinulle annetaan syötteenä luvut n ja m, jotka ovat kummatkin välillä 1-6. Tarkoituksenasi on laskea kuinka monta erilaista sellaista polkua n×m ruudukossa (missä n siis ruudukon korkeus ja m leveys) on, jossa jokaisessa ruudussa käydään tasan kerran ja polku alkaa vasemmasta yläkulmasta, sekä päättyy oikeaan yläkulmaan. Saat liikkua ruudukossa ainoastaan alas, ylös, oikealle ja vasemmalle, et siis esimerkiksi diagonaalisesti.</p>
+
+		<p>
+			<em>Vaikka tehtävään läpäimiseen ei vaaditakaan mitään ihmeellisiä optimointeja, saattaa olla hauska lisätehtävä testata kuinka isoille ruudukoille saat laskettua vastauksen. Varsin yksinkertaisilla optimoinneilla esimerkiksi 8×8 ruudukolle saa laskettua vastauksen alle minuutissa. Edistyneemmällä algoritmilla esimerkiksi 20×20 kokoiselle ruudukolle saa laskettua vastauksen muutamissa tunneissa.</em>
+		</p>
+
+		<h2>Esimerkit</h2>
+
+		<p>2×2 ruudukossa on vain yksi tällainen polku:</p>
+		{% highlight text %}
+14
+23
+		{% endhighlight %}
+		<p>luvut tarkoittavat missä järjestyksessä ruudukot käydään läpi.</p>
+
+		<p>3×3 ruudukossa mahdollisia reittejä onkin jo kaksi kappaletta.</p>
+		{% highlight text %}
+189    129
+276    438
+345    567
+		{% endhighlight %}
+
+		
+	</div>
+</div>
+<div class="exercise" id="t3">
+
+	<header>
+		<h1>Tehtävä 3</h1>
+	</header>
+
+	<div>
+
+		<h2>Toteutus</h2>
+
+		<p>
+			Toteuta metodi:
+			<code>boolean etsi(int[] taulukko, int k)</code>, joka tutkii onko taulukossa <em>neljää</em> lukua, joiden summa on <code>k</code>. Tässä tehtävässä sama taulukon luku saa kuulua summaan useamman kerran. Ratkaisusi tulee olla tehokas, syötteenä annetussa taulukossa voi olla jopa 500 lukua.
+		</p>
+
+		<p><strong>Huom!</strong> syötteessä voi olla myös negatiivisia lukuja!</p>
+
+		<h2>Esimerkit</h2>
+
+		<p>Kaikissa näissä esimerkeissä <code>k=10</code>.</p>
+
+		<p>Seuraaville taulukoille <code>etsi</code> palauttaa <code>true</code>:</p>
+		{% highlight text %}
+{2,3}
+{1,2,3,4}
+{4,2,3,1}
+{4,4,1,1,1,6,6}
+{4,3,1,5,5,6,6}
+		{% endhighlight %}
+		<p>Seuraaville taulukoille <code>etsi</code> palauttaa <code>false</code>:</p>
+		{% highlight text %}
+{5}
+{1,1,1,1}
+{4,6,5,5}
+{6,4,5,5}
+{6,6,6,4}
+		{% endhighlight %}
+	</div>
+</div>
+<div class="exercise" id="t4">
+
+	<header>
+		<h1>Tehtävä 4</h1>
+	</header>
+
+	<div>
+
+		<p>Tehtaassa on koneita, joista jokainen pystyy valmistamaan yhden tuotteen tietyssä ajassa. Tehtäväsi on valmistaa mahdollisimman nopeasti annettu määrä tuotteita käyttämällä koneita parhaalla mahdollisella tavalla.</p>
+
+		<table>
+			<thead>
+				<tr>
+					<th>kone</th>
+					<th>toiminta-aika</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>A</td>
+					<td>1</td>
+				</tr>
+				<tr>
+					<td>B</td>
+					<td>2</td>
+				</tr>
+				<tr>
+					<td>C</td>
+					<td>3</td>
+				</tr>
+				<tr>
+					<td>D</td>
+					<td>4</td>
+				</tr>
+			</tbody>
+		</table>
+
+<p>Kun haluat valmistaa 10 tuotetta,
+yksi optimaalisista tavoista on seuraava:</p>
+
+		<table>
+			<thead>
+				<tr>
+					<th>ajanhetki</th>
+					<th>tapahtumat</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>0</td>
+					<td>Laitat käyntiin koneet A, B, C ja D.</td>
+				</tr>
+				<tr>
+					<td>1</td>
+					<td>
+						Kone A saa valmiiksi tuotteen.
+						<br>		
+						Laitat uudestaan käyntiin koneen A.
+						<br>(1 tuote valmiina.)</td>
+				</tr>
+				<tr>
+					<td>2</td>
+					<td>
+						Koneet A ja B saavat valmiiksi tuotteen.
+						<br>		
+						Laitat uudestaan käyntiin koneet A ja B.
+						<br>(3 tuotetta valmiina.)</td>
+				</tr>
+				<tr>
+					<td>3</td>
+					<td>
+						Koneet A ja C saavat valmiiksi tuotteen.
+						<br>		
+						Laitat uudestaan käyntiin koneet A ja C.
+						<br>(5 tuotetta valmiina.)</td>
+				</tr>
+				<tr>
+					<td>4</td>
+					<td>
+						Koneet A, B ja D saavat valmiiksi tuotteen.
+						<br>		
+						Laitat uudestaan käyntiin koneen B.
+						<br>(8 tuotetta valmiina.)</td>
+				</tr>
+				<tr>
+					<td>5</td>
+					<td>Käyt katsomassa kissavideoita Youtubesta.</td>
+				</tr>
+				<tr>
+					<td>6</td>
+					<td>
+						Koneet B ja C saavat valmiiksi tuotteen.
+						<br>		
+						(10 tuotetta valmiina.)
+						<br>Tehtävä suoritettu!</td>
+				</tr>
+			</tbody>
+		</table>
+
+		<h2>Toteutus</h2>
+
+		<p>
+			Toteuta metodi:
+			<code>long lyhinAika(int[] koneet, int maara)</code>
+		</p>
+
+		<p>
+			Taulukko <code>koneet</code> sisältää tiedon, kuinka kauan kullakin koneella menee valmistaa tuote. Koneiden määrä on välillä 1..10<sup>5</sup>. Jokainen taulukon arvo on kokonaisluku välillä 1..10<sup>9</sup>.
+		</p>
+
+		<p>
+			Kokonaisluku <code>maara</code> on valmistettava tuotteiden määrä. Tämä luku on välillä 1..10<sup>5</sup>.
+		</p>
+
+		<p>
+			Metodin tulee palauttaa pienin mahdollinen aika, jossa saat valmistettua tuotteet koneiden avulla.
+		</p>
+
+		<h2>Esimerkit</h2>
+
+		<table>
+			<thead>
+				<tr>
+					<th>#</th>
+					<th>metodin kutsu</th>
+					<th>haluttu palautusarvo</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>1</td>
+					<td>
+						<code>lyhinAika(new int[] {1}, 5)</code>
+					</td>
+					<td>
+						<code>5</code>
+					</td>
+				</tr>
+				<tr>
+					<td>2</td>
+					<td>
+						<code>lyhinAika(new int[] {1, 1, 1}, 6)</code>
+					</td>
+					<td>
+						<code>2</code>
+					</td>
+				</tr>
+				<tr>
+					<td>3</td>
+					<td>
+						<code>lyhinAika(new int[] {5, 1, 1}, 6)</code>
+					</td>
+					<td>
+						<code>3</code>
+					</td>
+				</tr>
+				<tr>
+					<td>4</td>
+					<td>
+						<code>lyhinAika(new int[] {1, 2, 3, 4}, 10)</code>
+					</td>
+					<td>
+						<code>6</code>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+<div class="exercise" id="t5">
+
+	<header>
+		<h1>Tehtävä 5</h1>
+	</header>
+
+	<div>
+
+		<h2>Toteutus</h2>
+
+		<p>
+			Saat syötteenä matriisin, jonka jokaisessa solussa on joko 0 tai 1. Tehtävänäsi on selvittää suurin mahdollinen ala sellaiselle suorakulmiolle, joka sisältää vain lukua 0. Algoritmin on toimittava nopeasti, ruudukon leveys ja korkeus ovat enintään 2000, joten algoritmin aikavaativuus on oltava kutakuinkin O(w*h) tai O(w*h*log(w)), missä w on matriisin leveys ja h korkeus.
+		</p>
+
+		<h2>Esimerkit</h2>
+
+		<h3>Esimerkki 1</h3>
+
+		<div class="highlight">
+				<pre><code class="language-text" data-lang="text">0100
+0001
+0000</code></pre>
+		</div>
+		<p>suurin pelkkiä nollia sisältävä suorakulmio on</p>
+		<div class="highlight">
+			<pre><code class="language-text" data-lang="text">0100
+<span class="user-input">000</span>1
+<span class="user-input">000</span>0</code></pre>
+		</div>
+		<p>eli vastaus tässä tapauksessa on 6.</p>
+
+		<h3>Esimerkki 2</h3>
+		<div class="highlight">
+			<pre><code class="language-text" data-lang="text">11111
+01111
+00111
+00011
+00001</code></pre>
+		</div>
+		<p>suurin tehtävänannon mukainen suorakulmio on</p>
+		<div class="highlight">
+			<pre><code class="language-text" data-lang="text">11111
+01111
+<span class="user-input">00</span>111
+<span class="user-input">00</span>011
+<span class="user-input">00</span>001</code></pre>
+		</div>
+		<p>joten vastaus on myös 6.</p>
+	</div>
+</div>

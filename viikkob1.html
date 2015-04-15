@@ -1,0 +1,334 @@
+---
+layout: material
+title: Bonus 1
+---
+<p>Tehtävät avautuvat kun olet tehnyt kaikki viikkojen 1-6 tehtävät.</p>
+<div class="exercise" id="t1">
+
+	<header>
+		<h1>Tehtävä 1</h1>
+	</header>
+
+	<div>
+		<h2>Toteutus</h2>
+
+		<p>
+			Tee ohjelma <code>SuurinSumma.java</code>, joka selvittää suurimman peräkkäisten lukujen summan käyttäjän antamissa luvuissa. Ohjelma kysyy ensin, kuinka monta lukua käyttäjä antaa.
+		</p>
+		<p>
+			Tässä tehtävässä summaan täytyy kuulua ainakin yksi luku. Voit olettaa, että suurin summa on positiivinen.
+		</p>
+		<p>
+			Voit olettaa, että käyttäjä antaa ainakin yhden luvun ja korkeintaan miljoona lukua. Lisäksi voit olettaa, että jokainen luku on kokonaisluku väliltä -1000...1000, jolloin kaikki summat mahtuvat int-muuttujiin. Tee ohjelmasta niin tehokas, että se käsittelee miljoona lukua muutamassa sekunnissa. 
+		</p>
+		<p>
+			<strong>Huom!</strong>
+			Ohjelmasi on oltava tehokas. Aikavaativuuden tulisi olla O(n), missä n on listan pituus. Testit tarkastavat asian.
+		</p>
+
+		<p>
+			<strong>Vihje!</strong>
+			Tehtävään on olemassa ratkaisualgoritmi, jonka aikavaativuus on O(n) ja tilavaativuus on O(1).
+		</p>
+
+		<h2>Esimerkit</h2>
+
+		<h3>Esimerkki 1</h3>
+		<div class="highlight">
+			<pre><code class="language-text" data-lang="text">Kuinka monta? <span class="user-input">5</span>
+Anna luvut:
+<span class="user-input">1
+-2
+5
+2
+-1</span>
+Suurin summa: 7</code></pre>
+		</div>
+		<p>Suurin summa saadaan laskemalla yhteen luvut 5 ja 2.</p>
+
+		<h3>Esimerkki 2</h3>
+		<div class="highlight">
+			<pre><code class="language-text" data-lang="text">Kuinka monta? <span class="user-input">5</span>
+Anna luvut:
+<span class="user-input">4
+-2
+5
+2
+-1</span>
+Suurin summa: 7</code></pre>
+		</div>
+		<p>Suurin summa saadaan laskemalla yhteen luvut  4, -2, 5 ja 2.</p>
+
+		<h3>Esimerkki 3</h3>
+		<div class="highlight">
+			<pre><code class="language-text" data-lang="text">Kuinka monta? <span class="user-input">4</span>
+Anna luvut:
+<span class="user-input">4
+3
+-5
+6</span>
+Suurin summa: 7</code></pre>
+		</div>
+		<p>Suurin summa saadaan laskemalla kaikki luvut yhteen.</p>
+	</div>
+</div>
+<div class="exercise" id="t2">
+
+	<header>
+		<h1>Tehtävä 2</h1>
+	</header>
+
+	<div>
+
+		<p>Sinulle on annettu taulukko kokonaislukuja ja tehtäväsi on järjestää se pienimmästä suurimpaan. Ainoa sallittu operaatio on kahden vierekkäisen luvun järjestyksen kääntäminen. Kuinka monta kääntöä tarvitset vähintään taulukon järjestämiseksi?</p>
+
+		<p>Esimerkiksi jos taulukko on {1, 5, 2, 4, 3}, riittää tehdä 4 kääntöä:</p>
+		<ol class="compact">
+			<li>kääntö 5&lt;-&gt;2, tulos {1, 2, 5, 4, 3}</li>
+			<li>kääntö 4&lt;-&gt;3, tulos {1, 2, 5, 3, 4}</li>
+			<li>kääntö 5&lt;-&gt;3, tulos {1, 2, 3, 5, 4}</li>
+			<li>kääntö 5&lt;-&gt;4, tulos {1, 2, 3, 4, 5}</li>
+		</ol>
+		<h2>Toteutus</h2>
+
+		<p>
+			Toteuta metodi:
+			<code>int laskeKaannot(int[] luvut)</code>
+		</p>
+
+		<p>
+			Taulukko <code>luvut</code> sisältää 1..1000 kokonaislukua väliltä 1..10<sup>9</sup>.
+		</p>
+		<p>
+			Metodin tulee palauttaa pienin kääntöjen määrä, jolla taulukon saa järjestykseen.
+		</p>
+
+		<h2>Esimerkit</h2>
+
+		<table>
+			<thead>
+				<tr>
+					<th>#</th>
+					<th>metodin kutsu</th>
+					<th>haluttu palautusarvo</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>1</td>
+					<td>
+						<code>laskeKaannot(new int[] {1, 2, 3, 4, 5})</code>
+					</td>
+					<td>
+						<code>0</code>
+					</td>
+				</tr>
+				<tr>
+					<td>2</td>
+					<td>
+						<code>laskeKaannot(new int[] {5, 1, 2, 3, 4})</code>
+					</td>
+					<td>
+						<code>4</code>
+					</td>
+				</tr>
+				<tr>
+					<td>3</td>
+					<td>
+						<code>laskeKaannot(new int[] {5, 4, 3, 2, 1})</code>
+					</td>
+					<td>
+						<code>10</code>
+					</td>
+				</tr>
+				<tr>
+					<td>4</td>
+					<td>
+						<code>laskeKaannot(new int[] {1, 1, 1, 1, 1})</code>
+					</td>
+					<td>
+						<code>0</code>
+					</td>
+				</tr>
+				<tr>
+					<td>5</td>
+					<td>
+						<code>laskeKaannot(new int[] {1, 5, 2, 4, 3})</code>
+					</td>
+					<td>
+						<code>4</code>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+<div class="exercise" id="t3">
+
+	<header>
+		<h1>Tehtävä 3</h1>
+	</header>
+
+	<div>
+
+		<p>Tehtävänä on etsiä reitti pyramidin huipulta alas, jossa joka vaiheessa siirrytään alavasemmalla tai alaoikealla olevaan lukuun ja jossa lukujen summa on mahdollisimman suuri. Voit kuitenkin olettaa, että lukujen lopullinen summa mahtuu int-muuttujaan.</p>
+
+		<p>Tarkastellaan seuraavaa lukupyramidia:</p>
+		<div class="highlight">
+			<pre><code class="language-text" data-lang="text">      4
+    3   2
+  1   3   5
+3   4   1   1</code></pre>
+		</div>
+
+		<p>
+			Tässä tapauksessa paras reitti aloittaa huipulta (4), liikkuu alavasemmalle (3), liikkuu alaoikealle (3) ja liikkuu alavasemmalle (4). Lukujen summa reitillä on 14, ja millään muulla reitillä summa ei ole yhtä suuri. Seuraava kuva vastaa reittiä:
+		</p>
+
+		<div class="highlight">
+			<pre><code class="language-text" data-lang="text">      <span class="user-input">4</span>
+    <span class="user-input">3</span>   2
+  1   <span class="user-input">3</span>   5
+3   <span class="user-input">4</span>   1   1</code></pre>
+		</div>
+
+
+		<p>Toisaalta pyramidissa:</p>
+		<div class="highlight">
+			<pre><code class="language-text" data-lang="text">      4
+    3   2
+  1   3   5
+3   4   1   10</code></pre>
+		</div>
+
+		<p>paras reitti olisi:</p>
+
+		<div class="highlight">
+			<pre><code class="language-text" data-lang="text">      <span class="user-input">4</span>
+    3   <span class="user-input">2</span>
+  1   3   <span class="user-input">5</span>
+3   4   1   <span class="user-input">10</span></code></pre>
+		</div>
+
+		<h2>Toteutus</h2>
+
+		<p>
+			Toteuta tehtäväpohjan ohjelmaan <code>ParasReitti.java</code> metodi <code>public static int parasReitti(int[][] pyramidi)</code>, joka etsii parhaan reitin lukupyramidin huipulta alas ja ilmoittaa lukujen summan kyseisellä reitillä.
+		</p>
+
+		<p>
+			Metodi saa syötteenä kaksiulotteisen taulukon <code>pyramidi</code> siten, että <code>pyramidi[i][j]</code> on pyramidin (ylhäältä laskien, nollasta lähtien) <code>i</code>:nnen rivin (vasemmalta laskien, nollasta lähtien) <code>j</code>:nnes numero.
+		</p>
+
+		<p>
+			Ohjelma voi olettaa, että pyramidissa on korkeintaan sata kerrosta. <em>Tällöinkin ohjelman toiminnan tulee olla tehokas. Aikavaativuuden tulee olla kutakuinkin O(n^2), missä n on pyramidin korkeus.</em>
+		</p>
+
+		<p>
+			<strong>Vihje!</strong>
+			Tässä tehtävässä saattaa olla iloa ohjelmontitekniikasta nimeltä dynaaminen ohjelmointi (dynamic programming).
+		</p>
+
+
+
+		<h2>Esimerkit</h2>
+
+		<h3>Esimerkki 1</h3>
+		<div class="highlight">
+			<pre><code class="language-text" data-lang="text">Anna koko: <span class="user-input">4</span>
+Anna luvut:
+<span class="user-input">4
+3 2
+1 3 5
+3 4 1 1</span>
+Paras: 14</code></pre>
+		</div>
+
+		<h3>Esimerkki 2</h3>
+		<div class="highlight">
+			<pre><code class="language-text" data-lang="text">Anna koko: <span class="user-input">5</span>
+Anna luvut:
+<span class="user-input">7
+2 9
+1 5 2
+3 1 4 2
+7 8 3 1 4</span>
+Paras: 30</code></pre>
+		</div>
+	</div>
+</div>
+<div class="exercise" id="t4">
+
+	<header>
+		<h1>Tehtävä 4</h1>
+	</header>
+
+	<div>
+		<p>Tarkastellaan peliä, jossa joukko henkilöitä on asettunut rinkiin. Pelissä henkilöitä käydään läpi myötäpäivään ja joka toinen henkilö joutuu poistumaan ringistä. Ensimmäinen poistuja on toisena oleva. Lopulta ringissä on jäljellä enää yksi henkilö, josta tulee pelin voittaja.</p>
+
+		<p>Esimerkiksi jos henkilöitä on viisi, tilanne on seuraavanlainen:</p>
+
+		<img src="img/material/wb1e04.png">
+
+		<p>Henkilöt käydään läpi seuraavasti:</p>
+
+		<ol class="compact">
+			<li>Henkilö 1 saa jäädä rinkiin.</li>
+			<li>Henkilö 2 joutuu poistumaan.</li>
+			<li>Henkilö 3 saa jäädä rinkiin.</li>
+			<li>Henkilö 4 joutuu poistumaan.</li>
+			<li>Henkilö 5 saa jäädä rinkiin.</li>
+			<li>Henkilö 1 joutuu poistumaan.</li>
+			<li>Henkilö 3 saa jäädä rinkiin.</li>
+			<li>Henkilö 5 joutuu poistumaan.</li>
+		</ol>
+
+		<p>Pelin voittaja on henkilö 3, joka jää rinkiin viimeisenä.</p>
+
+		<h2>Toteutus</h2>
+
+		<p>
+			Toteuta ohjelmaan <code>Viimeinen</code> metodi:
+			<code>int viimeinen(int montako)</code>, joka selvittää yllä kuvatun pelin voittajan, kun pelissä on annettu määrä henkilöitä.
+		</p>
+
+		<p><strong>Huom!</strong> Suunnittele ohjelma niin, että se on tehokas myös miljoonan henkilön tapauksessa. Ratkaisun tulee olla O(1) ja O(n log n) välillä.</p>
+
+		<h2>Esimerkit</h2>
+
+		<h3>Esimerkki 1</h3>
+		<div class="highlight">
+			<pre><code class="language-text" data-lang="text">Kuinka monta? <span class="user-input">5</span>
+Voittaja: 3</code></pre>
+		</div>
+
+		<h3>Esimerkki 2</h3>
+		<div class="highlight">
+			<pre><code class="language-text" data-lang="text">Kuinka monta? <span class="user-input">6</span>
+Voittaja: 5</code></pre>
+		</div>
+	</div>
+</div>
+<div class="exercise" id="t5">
+
+	<header>
+		<h1>Tehtävä 5</h1>
+	</header>
+
+	<div>
+
+		<p>Tehtäväsi on toteuttaa tehtävän 2 metodi tehokkaasti.</p>
+		<h2>Toteutus</h2>
+
+		<p>
+			Toteuta metodi:
+			<code>long laskeKaannot(int[] luvut)</code>
+		</p>
+
+		<p>Taulukko luvut sisältää 1..10<sup>5</sup> kokonaislukua väliltä 1..10<sup>9</sup>.</p>
+
+		<p>Huomaathan että vastaus voi olla niin suuri, ettei se mahdu int -muuttujaan. Käytä siis longeja!</p>
+
+		<p><strong>Vinkki:</strong> lomitusjärjestäminen.</p>
+	</div>
+</div>

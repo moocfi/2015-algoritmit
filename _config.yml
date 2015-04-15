@@ -17,3 +17,14 @@ navigation:
   "Viikko 4": "/viikko4.html"
   "Viikko 5": "/viikko5.html"
   "Viikko 6": "/viikko6.html"
+  "Viikko 7": "/viikko7.html"
+  "Viikko 8": "/viikko8.html"
+  "Viikko 9": "/viikko9.html"
+  "Viikko 10": "/viikko10.html"
+  "Viikko 11": "/viikko11.html"
+  "Viikko 12": "/viikko12.html"
+  "Bonus 1": "/viikkob1.html"
+  "Bonus 2": "/viikkob2.html"
+
+links:
+  "kkkk": "http://cses.fi/kkkk.pdf"

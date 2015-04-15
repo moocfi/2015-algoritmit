@@ -1,0 +1,327 @@
+---
+layout: material
+title: Viikko 10
+---
+<p>Viikon aiheena on erityisesti syklit ja vahvasti yhtenäiset komponentit. Myös viime viikon teema jatkuu osittain.</p>
+<div class="exercise" id="t1">
+
+	<header>
+		<h1>Tehtävä 1</h1>
+	</header>
+
+	<div>
+
+		<p>
+			Uolevi haluaa antaa lahjan jokaiselle ystävälleen. Uolevi ei halua antaa samaa lahjaa ystäville, jotka tuntevat toisensa, koska muuten lahja ei vaikuta henkilökohtaiselta. Toisaalta Uolevin varastossa on vain kahdenlaisia lahjoja: hän voi antaa joko kirjan tai karkkipussin. Onko Uolevin tavoite mahdollinen?
+		</p>
+		<p>
+			Oletetaan esimerkiksi, että Uolevin ystävät ovat A, B, C ja D. A tuntee kaikki muut ystävät, kun taas muut eivät tunne toisiaan. Nyt lahjojen jakaminen on mahdollista esimerkiksi niin, että A saa kirjan ja kaikki muut saavat karkkipussin.
+		</p>
+		<p>
+			Oletetaan sitten, että A ei tunne ketään, kun taas B, C ja D tuntevat kaikki toisensa. Nyt lahjojen jakaminen ei ole mahdollista, koska B:llä tulisi olla eri lahja kuinC:llä ja D:llä ja C:llä ja D:llä ei saa olla samaa lahjaa.
+		</p>
+
+		<h2>Toteutus</h2>
+
+		<p>
+			Toteuta metodi:
+			<code>boolean lahjajako(int n, int[] mista, int[] minne)</code>
+		</p>
+
+		<p>
+			Parametri <code>n</code> on Uolevin ystävien määrä. Se on kokonaisluku välillä 1..10<sup>5</sup>. Ystävät on numeroitu kokonaisluvuin 1..n.
+		</p>
+		<p>
+			Taulukot <code>mista</code> ja <code>minne</code> kuvaavat ystävyyssuhteet. Ystävyyssuhteiden määrä on 0..10<sup>5</sup>.
+		</p>
+		<p>
+			Metodin tulee palauttaa <code>true</code>, jos lahjojen jakaminen on mahdollista Uolemin haluamalla tavalla, ja muuten <code>false</code>.
+		</p>
+
+
+		<h2>Esimerkit</h2>
+
+		<table>
+			<thead>
+				<tr>
+					<th>#</th>
+					<th>metodin kutsu</th>
+					<th>haluttu palautusarvo</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>1</td>
+					<td>
+						<code>lahjajako(4, new int[] {1, 2, 3}, new int[] {2, 3, 4})</code>
+					</td>
+					<td>
+						<code>true</code>
+					</td>
+				</tr>
+				<tr>
+					<td>2</td>
+					<td>
+						<code>lahjajako(4, new int[] {1, 1, 1}, new int[] {2, 3, 4})</code>
+					</td>
+					<td>
+						<code>true</code>
+					</td>
+				</tr>
+				<tr>
+					<td>3</td>
+					<td>
+						<code>lahjajako(3, new int[] {1, 2, 3}, new int[] {2, 3, 1})</code>
+					</td>
+					<td>
+						<code>false</code>
+					</td>
+				</tr>
+				<tr>
+					<td>4</td>
+					<td>
+						<code>lahjajako(4, new int[] {1, 2, 3}, new int[] {2, 3, 1})</code>
+					</td>
+					<td>
+						<code>false</code>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+<div class="exercise" id="t2">
+
+	<header>
+		<h1>Tehtävä 2</h1>
+	</header>
+
+	<div>
+
+		<p>
+			Opintosuunnittelija Keijo Kojootti suunnittelee kurssien esitietovaatimuksia. Tee hänen avukseen ohjelma, joka tarkastaa, onko esitiedoissa sykli.
+		</p>
+
+		<h2>Toteutus</h2>
+
+		<p>
+			Toteuta metodi:
+			<code>public boolean sykli(Esitieto[] esitiedot)</code>, joka palauttaa <code>true</code> jos annetuissa esitiedoissa on sykli.
+		</p>
+
+		<p>
+			Esitiedot on esitetty taulukkona <code>Esitieto</code>-olioita. <code>Esitieto</code>-oliot toimivat siten, että kurssi <code>e.esi</code> tulee suorittaa ennen kurssia <code>e.kurssi</code>.
+		</p>
+
+		<h2>Esimerkit</h2>
+
+		<p>Seuraavissa esitiedoissa ei ole sykliä:</p>
+		{% highlight text %}
+a b
+b c
+a d
+d c
+d b
+c e
+		{% endhighlight %}
+
+		<p>Seuraavissa esitiedoissa taas on sykli:</p>
+		{% highlight text %}
+a b
+b c
+a d
+d c
+d b
+c a
+		{% endhighlight %}
+	</div>
+</div>
+<div class="exercise" id="t3">
+
+	<header>
+		<h1>Tehtävä 3</h1>
+	</header>
+
+	<div>
+
+		<p>
+			Tehtävänäsi on selvittää jokin käypä järjestys kurssien käymiseen, kun kurssien väliset esitiedot on annettu.
+		</p>
+
+		<h2>Toteutus</h2>
+
+
+		<p>
+			Toteuta metodi:
+			<code>ArrayList&lt;String&gt; jarjestys(Esitieto[] esitiedot)</code>
+		</p>
+
+		<p>Voit olettaa että annetuissa esitiedoissa ei ole sykliä.</p>
+
+		<h2>Esimerkit</h2>
+
+		<h3>Esimerkki 1</h3>
+		<p>Seuraavien esitietojen eräs käypä suoritusjärjestys on <code>a d b c e</code>.</p>
+		{% highlight text %}
+a b
+b c
+a d
+d c
+d b
+c a
+		{% endhighlight %}
+
+		<h3>Esimerkki 2</h3>
+		<p>Seuraavien esitietojen eräs käypä suoritusjärjestys on <code>ohpe ohja javalabra tira tiralabra lama ohma ohtu ohtuprojekti</code>.</p>
+		{% highlight text %}
+ohpe ohja
+ohja tira
+tira lama
+tira tiralabra
+ohja javalabra
+javalabra tiralabra
+ohpe ohma
+tiralabra ohtuprojekti
+javalabra ohtuprojekti
+ohma ohtu
+ohtu ohtuprojekti
+lama ohtuprojekti
+		{% endhighlight %}
+
+	</div>
+</div>
+<div class="exercise" id="t4">
+
+	<header>
+		<h1>Tehtävä 4</h1>
+	</header>
+
+	<div>
+
+		<p>
+			Eulerin kierrokseen ja sen löytämiseen, voit tutustua esimerkiksi <a href="{{ site.links.kkkk }}" target="_blank">kisakoodarin käsikirjasta</a> (luku 20).
+		</p>
+
+		<p>
+			Eulerin kierros verkossa on polku, joka kulkee jokaista kaarta pitkin täsmälleen kerran ja saapuu takaisin lähtöruutuun.
+		</p>
+
+		<h2>Toteutus</h2>
+
+		<p>
+			Toteuta metodi:
+			<code>ArrayList&lt;Integer&gt; eulerinKierros(boolean[][] verkko)</code>, joka palauttaa verkon jonkin Eulerin kierroksen. (Voit olettaa että sellainen on olemassa.) Syötteenä oleva verkko on esitetty vierusmatriisina -- samoin kuin tehtävässä 1.
+		</p>
+
+		<h2>Esimerkit</h2>
+
+		<h3>Esimerkki 1</h3>
+		{% highlight text %}
+Graafi:
+0--1
+|  |
+|  |
+3--2
+
+Vierusmatriisi:
+0101
+1010
+0101
+1010
+		{% endhighlight %}
+		<p>Eräs Eulerin kierros on <code>0, 1, 2, 3</code></p>
+
+		<h3>Esimerkki 2</h3>
+		{% highlight text %}
+Graafi:
+0--1
+|  |
+|  |
+3--2--4
+   |  |
+   |  |
+   5--6
+
+Vierusmatriisi:
+0101000
+1010000
+0101110
+1010000
+0010001
+0010001
+0000110
+		{% endhighlight %}
+		<p>Eräs Eulerin kierros on <code>0, 1, 2, 5, 6, 4, 2, 3</code></p>
+
+		<h3>Esimerkki 3</h3>
+		{% highlight text %}
+Graafi:
+  __0_____
+ / / \    \
+2-3  4     5  6--7
+      \_____\ /_/
+             1
+
+Vierusmatriisi:
+0101000
+1010000
+0101110
+1010000
+0010001
+0010001
+0000110
+		{% endhighlight %}
+		<p>Eräs Eulerin kierros on <code>0, 1, 2, 5, 6, 4, 2, 3</code></p>
+	</div>
+</div>
+<div class="exercise" id="t5">
+
+	<header>
+		<h1>Tehtävä 5</h1>
+	</header>
+
+	<div>
+		<p>
+			Sinulle annetaan syötteenä n-solmuisen suunnatun verkon vierusmatriisi, missä <em>n</em> on korkeintaan 1000. Lisäksi tiedetään, että verkossa on ainakin yksi solmu, josta on kaari itseensä. Tehtävänä on selvittää, onko olemassa jotain sellaista positiivista kokonaislukua <em>m</em>, jolle pätee seuraava: valitaanpa mitkä tahansa kaksi (eri) verkon solmua <em>a</em> ja <em>b</em>, niin on olemassa polku solmusta <em>a</em> solmuun <em>b</em>, jonka pituus on tasan <em>m</em>.
+		</p>
+		<h2>Toteutus</h2>
+
+		<p>
+			Toteuta metodi:
+			<code>boolean ratkaise(boolean[][] verkko)</code>, joka ratkaisee yllä kuvatun ongelman verkolle, jonka vierusmatriisi annetaan parametrina.
+		</p>
+
+		<h2>Esimerkit</h2>
+		<h3>Esimerkki 1</h3>
+		<p>Vierusmatriisia</p>
+		{% highlight text %}
+110
+001
+100
+		{% endhighlight %}
+		<p>vastaava verkko on</p>
+		<img src="img/material/w10e05.png">
+		<p>
+			Tässä verkossa jokaisen solmuparin välillä on reitti, jonka pituus on 4:
+		</p>
+
+		<ul class="compact">
+			<li><strong>1->2</strong>: 1->2->3->1->2</li>
+			<li><strong>2->1</strong>: 2->3->1->1->1</li>
+			<li><strong>1->3</strong>: 1->1->1->2->3</li>
+			<li><strong>3->1</strong>: 3->1->1->1->1</li>
+			<li><strong>2->3</strong>: 2->3->1->2->3</li>
+			<li><strong>3->2</strong>: 3->1->1->1->2</li>
+		</ul>
+
+		<h3>Esimerkki 2</h3>
+		<p>Tehtävänannon mukaista lukua <em>m</em> ole esimerkiksi seuraavalle verkolle, sillä jokaisesta solmusta pääsee ainoastaan itseensä.</p>
+
+		{% highlight text %}
+100
+010
+001
+		{% endhighlight %}
+
+	</div>
+</div>

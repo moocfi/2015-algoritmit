@@ -1,0 +1,353 @@
+---
+layout: material
+title: Viikko 11
+---
+
+<p>Viikon aiheena on lyhimmät reitit painotetussa verkossa, erityisesti Dijkstran ja Floyd-Warshallin algoritmeilla on käyttöä.</p>
+
+<div class="exercise" id="t1">
+
+	<header>
+		<h1>Tehtävä 1</h1>
+	</header>
+
+	<div>
+
+		<p>
+			Sinulle on annettu tieverkosto, ja tehtäväsi on etsiä lyhin reitti kahden kaupungin välillä.
+		</p>
+
+		<h2>Toteutus</h2>
+
+		<p>
+			Toteuta metodi:
+			<code>long lyhinReitti(int n, int[] mista, int[] minne, int[] matka)</code>
+		</p>
+
+		<p>
+			Parametri <code>n</code> on kaupunkien määrä. Se on kokonaisluku välillä 1..100. Kaupungit on numeroitu tuttuun tapaan kokonaisluvuin 1..n.
+		</p>
+
+		<p>
+			Taulukot <code>mista</code>, <code>minne</code> ja <code>matka</code> kuvaavat kaupunkien väliset tiet. Kaikki taulukot ovat samankokoisia, ja teiden määrä on välillä 1..10<sup>5</sup>. Taulukko <code>mista</code> kertoo, mistä kaupungista tie alkaa, taulukko <code>minne</code> kertoo, mihin kaupunkiin tie johtaa, ja taulukko <code>matka</code> kertoo tien pituuden. Kaikki tiet ovat kaksisuuntaisia, ja jokaisen tien pituus on kokonaisluku välillä 1..10<sup>9</sup>.
+		</p>
+		<p>
+			Metodin tulee palauttaa lyhimmän reitin pituus kaupungista 1 kaupunkiin n. Jos mitään reittiä ei ole olemassa, metodin tulee palauttaa -1.
+		</p>
+
+		<h2>Esimerkit</h2>
+
+		<table>
+			<thead>
+				<tr>
+					<th>#</th>
+					<th>metodin kutsu</th>
+					<th>haluttu palautusarvo</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>1</td>
+					<td>
+						<code>lyhinReitti(3, new int[] {1, 2}, new int[] {2, 3}, new int[] {5, 3})</code>
+					</td>
+					<td>
+						<code>8</code>
+					</td>
+				</tr>
+				<tr>
+					<td>2</td>
+					<td>
+						<code>lyhinReitti(3, new int[] {1, 1}, new int[] {2, 3}, new int[] {2, 3})</code>
+					</td>
+					<td>
+						<code>3</code>
+					</td>
+				</tr>
+				<tr>
+					<td>3</td>
+					<td>
+						<code>lyhinReitti(3, new int[] {1, 2, 1}, new int[] {3, 3, 2}, new int[] {9, 1, 1})</code>
+					</td>
+					<td>
+						<code>2</code>
+					</td>
+				</tr>
+				<tr>
+					<td>4</td>
+					<td>
+						<code>lyhinReitti(3, new int[] {1, 2, 1}, new int[] {3, 3, 2}, new int[] {1, 9, 9})</code>
+					</td>
+					<td>
+						<code>1</code>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+<div class="exercise" id="t2">
+
+	<header>
+		<h1>Tehtävä 2</h1>
+	</header>
+
+	<div>
+
+		<h2>Toteutus</h2>
+
+		<p>Tämä on muuten sama kuin tehtävä 1, mutta kaupunkien määrä on välillä 1..10<sup>5</sup>. Saatat siis tarvita tehokkaamman algoritmin kuin tehtävässä 1.</p>
+	</div>
+</div>
+<div class="exercise" id="t3">
+
+	<header>
+		<h1>Tehtävä 3</h1>
+	</header>
+
+	<div>
+
+		<p>
+			Sinulla on tiedot henkilöiden välisistä ystävyyssuhteista, ja tehtäväsi on etsiä kaksi henkilöä, jotka ovat mahdollisimman kaukana toisistaan ystäväverkostossa. Tämä liittyy väitteeseen, että kaikki maailman ihmiset tuntevat toisensa 7 henkilön kautta.
+		</p>
+		<p>
+			Oletetaan esimerkiksi, että henkilöt ovat A, B ja C. Tiedetään, että A tuntee B:n ja B tuntee C:n. Nyt kaukaisimmat henkilöt ovat A ja C, joiden etäisyys on 2.
+		</p>
+
+		<h2>Toteutus</h2>
+
+		<p>
+			Toteuta metodi:
+			<code>int kaukaisimmat(int n, int[] mista, int[] minne)</code>
+		</p>
+
+		<p>
+			Parametri <code>n</code> on henkilöiden määrä, kokonaisluku välillä 1..100. Taulukot <code>mista</code> ja <code>minne</code> kuvaavat ystävyyssuhteet, ja niissä on 1..10<sup>5</sup> alkiota. Voit olettaa, että ystäväverkosto on yhtenäinen.
+		</p>
+
+		<p>
+			Metodin tulee palauttaa, mikä on suurin etäisyys kahden henkilön välillä ystäväverkostossa.
+		</p>
+
+		<h2>Esimerkit</h2>
+
+		<table>
+			<thead>
+				<tr>
+					<th>#</th>
+					<th>metodin kutsu</th>
+					<th>haluttu palautusarvo</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<th>#</th>
+					<th>metodin kutsu</th>
+					<th>haluttu palautusarvo</th>
+				</tr>
+				<tr>
+					<td>1</td>
+					<td>
+						<code>kaukaisimmat(3, new int[] {1, 2}, new int[] {2, 3})</code>
+					</td>
+					<td>
+						<code>2</code>
+					</td>
+				</tr>
+				<tr>
+					<td>2</td>
+					<td>
+						<code>kaukaisimmat(3, new int[] {1, 1}, new int[] {2, 3})</code>
+					</td>
+					<td>
+						<code>2</code>
+					</td>
+				</tr>
+				<tr>
+					<td>3</td>
+					<td>
+						<code>kaukaisimmat(3, new int[] {1, 2, 3}, new int[] {2, 3, 1})</code>
+					</td>
+					<td>
+						<code>1</code>
+					</td>
+				</tr>
+				<tr>
+					<td>4</td>
+					<td>
+						<code>kaukaisimmat(4, new int[] {1, 2, 3}, new int[] {2, 3, 4})</code>
+					</td>
+					<td>
+						<code>3</code>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+<div class="exercise" id="t4">
+
+	<header>
+		<h1>Tehtävä 4</h1>
+	</header>
+
+	<div>
+
+		<p>
+			Sinulle on annettu tiedot juna- ja lentoyhteyksistä. Haluaisit matkustaa kaupungista toiseen niin, että matkan varrella on mahdollisimman vähän lentoja.
+		</p>
+
+		<p>
+			Oletetaan esimerkiksi, että kaupunkeja on 3. Kaupungista 1 pääsee junalla kaupunkiin 2. Lisäksi kaupungista 1 pääsee lentäen kaupunkiin 2 ja kaupungista 2 pääsee lentäen kaupunkiin 3. Kun haluat matkustaa kaupungista 1 kaupunkiin 3, pienin mahdollinen määrä lentoja on 1: kaupungista 2 on pakko lentää kaupunkiin 3, koska kaupunkiin 3 ei pääse muulla tavalla.
+		</p>
+
+		<h2>Toteutus</h2>
+
+		<p>
+			Toteuta metodi:
+			<code>int lentomaara(int n, int[] juna1, int[] juna2, int[] lento1, int[] lento2)</code>
+		</p>
+
+		<p>
+			Parametri <code>n</code> on kaupunkien määrä. Se on kokonaisluku välillä 1..10<sup>5</sup>. Kaupungit on numeroitu tuttuun tapaan kokonaisluvuin 1..n.
+		</p>
+
+		<p>
+			Taulukot <code>juna1</code> ja <code>juna2</code> kuvaavat junayhteydet. Taulukossa <code>juna1</code> lukee, mistä kaupungista juna lähtee, ja taulukossa <code>juna2</code> lukee, mihin kaupunkiin juna saapuu. Kaikki yhteydet ovat kaksisuuntaisia.
+		</p>
+		<p>
+			Taulukot <code>lento1</code> ja <code>lento2</code> kuvaavat lentoyhteydet. Taulukossa <code>lento1</code> lukee, mistä kaupungista lento lähtee, ja taulukossa <code>lento2</code> lukee, mihin kaupunkiin lento saapuu. Kaikki yhteydet ovat kaksisuuntaisia.
+		</p>
+		<p>
+			Sekä junia että lentoja on välillä 0..10<sup>5</sup>.
+		</p>
+		<p>
+			Metodin tulee palauttaa pienin lentojen määrä, jolla pääset kaupungista 1 kaupunkiin n. Jos mitään reittiä ei ole olemassa, metodin tulee palauttaa -1.
+		</p>
+
+		<h2>Esimerkit</h2>
+
+		<table>
+			<thead>
+				<tr>
+					<th>#</th>
+					<th>metodin kutsu</th>
+					<th>haluttu palautusarvo</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>1</td>
+					<td>
+						<code>lentomaara(3, new int[] {1}, new int[] {2}, new int[] {1, 2}, new int[] {2, 3})</code>
+					</td>
+					<td>
+						<code>1</code>
+					</td>
+				</tr>
+				<tr>
+					<td>2</td>
+					<td>
+						<code>lentomaara(3, new int[] {1}, new int[] {3}, new int[] {1, 2}, new int[] {2, 3})</code>
+					</td>
+					<td>
+						<code>0</code>
+					</td>
+				</tr>
+				<tr>
+					<td>3</td>
+					<td>
+						<code>lentomaara(3, new int[] {}, new int[] {}, new int[] {1, 2}, new int[] {2, 3})</code>
+					</td>
+					<td>
+						<code>2</code>
+					</td>
+				</tr>
+				<tr>
+					<td>4</td>
+					<td>
+						<code>lentomaara(3, new int[] {1, 2}, new int[] {2, 3}, new int[] {1, 2}, new int[] {2, 3})</code>
+					</td>
+					<td>
+						<code>0</code>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+<div class="exercise" id="t5">
+
+	<header>
+		<h1>Tehtävä 5</h1>
+	</header>
+
+	<div>
+
+		<p>Uolevi aikoo mennä Maijan luokse lyhintä reittiä, mutta joskus reitti ei ole yksikäsitteinen. Tehtäväsi on laskea, montako erilaista lyhintä reittiä Uolevilla on valittavana.</p>
+
+		<h2>Toteutus</h2>
+
+		<p>
+			Toteuta metodi:
+			<code>long reittimaara(int n, int[] mista, int[] minne, int[] matka)</code>
+		</p>
+
+		<p>
+			Parametrit kuvaavat kaupungit ja tiet samalla tavalla kuin aiemmissa tehtävissä. Kaupunkien määrä on välillä 1..10<sup>5</sup> ja samoin teiden määrä on välillä 1..10<sup>5</sup>. Jokaisen tien pituus on välllä 1..10<sup>9</sup>.
+		</p>
+		<p>
+			Metodin tulee palauttaa, montako erilaista lyhintä reittiä on olemassa kaupungista 1 kaupunkiin n. Voit olettaa, että vastaus on enintään 10<sup>18</sup>.
+		</p>
+
+		<h2>Esimerkit</h2>
+
+		<table>
+			<thead>
+				<tr>
+					<th>#</th>
+					<th>metodin kutsu</th>
+					<th>haluttu palautusarvo</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>1</td>
+					<td>
+						<code>reittimaara(3, new int[] {1, 2}, new int[] {2, 3}, new int[] {5, 3})</code>
+					</td>
+					<td>
+						<code>1</code>
+					</td>
+				</tr>
+				<tr>
+					<td>2</td>
+					<td>
+						<code>reittimaara(3, new int[] {1, 2, 1}, new int[] {2, 3, 3}, new int[] {2, 3, 5})</code>
+					</td>
+					<td>
+						<code>2</code>
+					</td>
+				</tr>
+				<tr>
+					<td>3</td>
+					<td>
+						<code>reittimaara(5, new int[] {1, 1, 1, 2, 3, 4}, new int[] {2, 3, 4, 5, 5, 5}, new int[] {1, 1, 1, 1, 1, 1})</code>
+					</td>
+					<td>
+						<code>3</code>
+					</td>
+				</tr>
+				<tr>
+					<td>4</td>
+					<td>
+						<code>reittimaara(5, new int[] {1, 1, 1, 2, 3, 4}, new int[] {2, 3, 4, 5, 5, 5}, new int[] {1, 2, 2, 1, 1, 1})</code>
+					</td>
+					<td>
+						<code>1</code>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>

@@ -1,0 +1,335 @@
+---
+layout: material
+title: Viikko 9
+---
+
+<p>Näissä tehtävissä sovelletaan syvyys- ja leveyssuuntaista hakua.</p>
+<div class="exercise" id="t1">
+
+	<header>
+		<h1>Tehtävä 1</h1>
+	</header>
+
+	<div>
+
+		<h2>Toteutus</h2>
+
+		<p>
+			Toteuta metodi:
+			<code>boolean tietoverkko(boolean[][] verkko)</code>, jolle annetaan kuvaus tietoverkosta ja joka tarkistaa, pystyvätkö kaikki verkon koneet viestimään keskenään. Toisin sanoen ohjelman tulee tarkistaa, onko verkko yhtenäinen.
+		</p>
+
+		<p>
+			Verkossa on <em>n</em> konetta, jotka on numeroitu kokonaisluvuin 0...n-1. Voit olettaa, että <em>n</em> on korkeintaan 1000.
+		</p>
+
+		<p>
+			Verkon kuvaus on <em>vierusmatriisi</em>, eli kaksiulotteinen taulukko <code>verkko</code>, jossa <code>verkko[i][j]</code> on <code>true</code> jos koneitten <code>i</code> ja <code>j</code> välillä menee yhteys.
+		</p>
+
+		<h2>Esimerkit</h2>
+
+		<h3>Esimerkki 1</h3>
+
+		<p>Verkon</p>
+
+		<pre>
+  3
+ /|\
+4 | 0
+ \|/ \
+  1---2
+		</pre>
+
+		<p>vierusmatriisi on:</p>
+
+		{% highlight text %}
+01110
+10111
+11000
+11001
+01010
+		{% endhighlight %}
+
+		<p>
+			ja verkko on yhtenäinen.
+		</p>
+
+		<h3>Esimerkki 2</h3>
+
+		<p>Verkon</p>
+
+		<pre>
+  3
+ /|
+4 | 0
+ \| |
+  1 2
+		</pre>
+
+		<p>vierusmatriisi on:</p>
+
+		{% highlight text %}
+00100
+00011
+10000
+01001
+01010
+		{% endhighlight %}
+
+		<p>
+			ja verkko ei ole yhtenäinen.
+		</p>
+	</div>
+</div>
+<div class="exercise" id="t2">
+
+	<header>
+		<h1>Tehtävä 2</h1>
+	</header>
+
+	<div>
+
+		<p>
+			Saat talon pohjapiirustuksen. Tehtävänäsi on laskea, montako huonetta talossa on. Huone tarkoittaa yhtenäistä seinien rajaamaa lattiatilaa.
+		</p>
+
+		<h2>Toteutus</h2>
+
+		<p>
+			Toteuta metodi:
+			<code>int huoneet(char[][] talo)</code>, joka palauttaa huoneitten lukumäärän. Pohjapiirroksessa merkki '#' tarkoittaa seinää ja merkki '.' lattiaa.
+		</p>
+
+
+		<p><em>Huom!</em> Kartan reunojen ulkopuolella on (implisiittiset) seinät. Siis esimerkiksi seuraavassa kartassa on kaksi huonetta.</p>
+
+		<pre>
+.
+#
+.
+		</pre>
+		<h2>Esimerkit</h2>
+
+		<h3>Esimerkki 1</h3>
+		{% highlight text %}
+##########
+#.###....#
+#..#####.#
+#...#.##.#
+##########
+		{% endhighlight %}
+
+		<p>Huoneita: 3</p>
+
+		<h3>Esimerkki 2</h3>
+		{% highlight text %}
+##########
+#.#...##.#
+#.#.#....#
+#.....##.#
+##########
+		{% endhighlight %}
+
+		<p>Huoneita: 1</p>
+	</div>
+</div>
+<div class="exercise" id="t3">
+
+	<header>
+		<h1>Tehtävä 3</h1>
+	</header>
+
+	<div>
+
+		<p>
+			Tällä kertaa huoneitten laskemisen sijaan on tehtävänä laskea huoneitten koot. 
+		</p>
+		
+
+		<h2>Toteutus</h2>
+
+		<p>
+			Toteuta metodi <code>ArrayList&lt;Integer&gt; koot(char[][] talo)</code> joka palauttaa huoneitten koot (jossain järjestyksessä) ArrayListissä.
+		</p>
+		
+		<p>
+			Talon pohjapiirros annetaan ohjelmalle samassa muodossa kuin edellisessä tehtävässä.
+		</p>
+		<h2>Esimerkit</h2>
+
+		<h3>Esimerkki 1</h3>
+		{% highlight text %}
+##########
+#.###....#
+#..#####.#
+#...#.##.#
+##########
+		{% endhighlight %}
+
+		<p>Huoneiden koot: 6, 6, 1. Tässä talossa on kaksi huonetta, joiden koko on 6 ruutua, ja yksi huone, jonka koko on 1 ruutu.</p>
+
+		<h3>Esimerkki 2</h3>
+		{% highlight text %}
+##########
+#.#..#.#.#
+######.###
+#..#.#.#.#
+##########
+		{% endhighlight %}
+
+		<p>Huoneiden koot: 3, 2, 2, 1, 1, 1, 1.</p>
+	</div>
+</div>
+<div class="exercise" id="t4">
+
+	<header>
+		<h1>Tehtävä 4</h1>
+	</header>
+
+	<div>
+
+		<p>
+			Ratsu liikkuu shakkilaudalla kulkemalla kaksi ruutua johonkin suuntaan (vasen, oikea, ylös, alas), ja sitten yhden ruudun edellisen suunnan kanssa suorassa kulmassa olevaan suuntaan. Seuraavassa on piirretty ratsun (R) kaikki mahdolliset seuraavat ruudut (x):
+		</p>
+
+		<pre>
+........
+........
+..x.x...
+.x...x..
+...R....
+.x...x..
+..x.x...
+........
+		</pre>
+
+		<p>
+			Tehtävänäsi on etsiä ratsun lyhin reitti annetusta 8x8 shakkilaudan ruudusta toiseen.
+		</p>
+
+		<h2>Toteutus</h2>
+
+		<p>
+			Toteuta metodi:
+			<code>int ratsu(int x0, int y0, int x1, int y1)</code>, joka palauttaa lyhimmän reitin pituuden lähtöruudusta (<code>x0</code>,<code>y0</code>) maaliruutuun (<code>x1</code>,<code>y1</code>).
+		</p>
+
+		<h2>Esimerkit</h2>
+
+		<h3>Esimerkki 1</h3>
+		
+		<p>Metodikutsun <code>ratsu(0,0,1,2)</code> pitäisi palauttaa luku 1.</p>
+		{%highlight text %}
+0.......
+........
+.1......
+........
+........
+........
+........
+........
+		{% endhighlight %}
+
+		<h3>Esimerkki 2</h3>
+		
+		<p>Metodikutsun <code>ratsu(0,0,7,7)</code> pitäisi palauttaa luku 6. Samanpituisia reittejä on useita.</p>
+		{%highlight text %}
+0.......
+........
+.1......
+...2....
+.....3..
+.......4
+.....5..
+.......6
+		{% endhighlight %}
+
+	</div>
+</div>
+<div class="exercise" id="t5">
+
+	<header>
+		<h1>Tehtävä 5</h1>
+	</header>
+
+	<div>
+
+		<p>
+			<strong>HUOMAUTUS!</strong>
+			Ennen tämän tehtävän tekemistä kannattaa tutustua Floyd-Warshallin algoritmiin. Se on kätevä tapa laskea tarpeeksi pienien verkkojen lyhimmät etäisyydet kaikille verkon solmupareille. Tämän tehtävän toteutus leveyshaulla on huomattavasti ikävämpää kuin käyttäen Floyd-Warshallia. Voit lukea algoritmista esimerkiksi 
+			<a href="{{ site.links.kkkk }}" target="_blank">
+				kisakoodarin käsikirjan
+			</a>
+			luvusta 17.
+		</p>
+
+		<p>
+			Uolevi on kokenut lentomatkaaja ja kertoo usein tarinoita matkoistaan. Mutta Maijan mielestä jotkin Uolevin tarinat kuulostavat epäilyttäviltä.
+		</p>
+
+		<p>
+			Tehtäväsi on selvittää, mitkä Uolevin tarinoista voivat pitää paikkansa ja mitkä ovat varmasti valetta.
+		</p>
+
+		<p>
+			Oletetaan esimerkiksi, että lentoasemia on 4 ja lentoyhteyksiä on 2: asemalta 1 pystyy lentämään asemille 2 ja 3. Uolevi väittää:
+		</p>
+
+		<ol class="compact">
+			<li>"Lensin asemalta 1 asemalle 2 käyttäen 1 lentoa."
+			<li>"Lensin asemalta 1 asemalle 1 käyttäen 4 lentoa."
+			<li>"Lensin asemalta 1 asemalle 2 käyttäen 2 lentoa."
+			<li>"Lensin asemalta 1 asemalle 4 käyttäen 3 lentoa."
+		</ol>
+
+		<p>
+			Väite 1 voi olla totta, koska asemalta 1 on lentoyhteys asemalle 2. Väite 2 voi myös olla totta, koska Uolevi on voinut lentää 1 -> 2 -> 1 -> 2 -> 1 käyttäen 4 lentoa. Väite 3 on valetta, koska asemalle 2 voi päästä 1 tai 3 lennolla mutta ei 2 lennolla. Väite 4 on valetta, koska asemalle 4 ei pääse mitenkään, erityisesti ei 3 lentoa käyttäen.
+		</p>
+
+		<h2>Toteutus</h2>
+
+		<p>
+			Tehtäväsi on toteuttaa luokka <code>Lentoreitit</code>, joka tarjoaa seuraavat metodit:
+		</p>
+
+		<ul>
+			<li>
+				<code>Lentoreitit(int n, int[] mista, int[] minne)</code><br>
+				konstruktorille annetaan tiedot kaikista lentoreiteistä
+			</li>
+			<li>
+				<code>boolean mahdollinen(int alku, int loppu, int lennot)</code><br>
+				metodin tulee tutkia Uolevin väite: "lähdin liikkeelle paikasta <code>alku</code> ja saavuin <code>lennot</code> lennon jälkeen paikkaan <code>loppu</code>"
+			</li>
+		</ul>
+
+		<p>
+			Lentoasemien määrä n on välillä 1..100, ja asemat on numeroitu kokonaisluvuin 1..n. Lentoyhteyksien määrä on välillä 1..10<sup>5</sup>. Kaikki yhteydet ovat kaksisuuntaisia.
+		</p>
+
+		<p>
+			Uolevin väitteitä on välillä 1..10<sup>5</sup>, ja jokaisessa väitteessä alku ja loppu ovat lentoasemien numerot ja lennot on kokonaisluku välillä 1..10<sup>9</sup>. Jos väite voi olla totta, metodin tulee palauttaa <code>true</code>, ja jos väite on varmasti valetta, metodin tulee palauttaa <code>false</code>.
+		</p>
+
+		<h2>Esimerkit</h2>
+
+		
+		<p>Seuraava koodi testaa luokkaa:</p>
+		{% highlight java %}
+Lentoreitit x = new Lentoreitit(4, new int[] {1, 1}, new int[] {2, 3});
+System.out.println(x.mahdollinen(1, 2, 1));
+System.out.println(x.mahdollinen(1, 1, 4));
+System.out.println(x.mahdollinen(1, 2, 2));
+System.out.println(x.mahdollinen(1, 4, 3));
+		{% endhighlight %}
+		<p>Koodin tulostuksen tulisi olla seuraava:</p>
+		{% highlight text %}
+true
+true
+false
+false
+		{% endhighlight %}
+		
+	</div>
+</div>

@@ -1,0 +1,441 @@
+---
+layout: material
+title: Viikko 8
+---
+
+<p>Tämän viikon tehtävät 1-3 liittyvät ongelmanratkaisuun puissa ja 4-6 kekoon.</p>
+
+<div class="exercise" id="t1">
+
+	<header>
+		<h1>Tehtävä 1</h1>
+	</header>
+
+	<div>
+		<p>Palindromi on merkkijono joka on sama kumminkin päin luettuna. Esimerkiksi sana anna on palindromi mutta sana talo ei. Kirjaimista A...C voidaan muodostaa seuraavat 3 kirjaimen pituiset palindromit:</p>
+
+		<p>AAA, ABA, ACA, BAB, BBB, BCB, CAC, CBC, CCC</p>
+
+		<h2>Toteutus</h2>
+
+		<p>
+			Toteuta metodi:
+			<code>void palindromit(int kirjaimia, int pituus)</code>, joka tulostaa kaikki <code>pituus</code>-pituiset palindromit, jotka muodostuvat <code>kirjaimia</code> kpl aakkosten ensimmäisistä kirjamesta.
+		</p>
+
+		<p>
+			Voit olettaa, että kirjaimia on korkeintaan 26 ja pituus on korkeintaan 100.
+		</p>
+
+		<p>
+			<em>Huom!</em> älä tee niin että generoit merkkijonon ja sitten tarkistat onko se palindromi. Kaikkia merkkijonoja on paljon enemmän kuin palindromeja. Voit nähdä tämän itse kirjoittamalla paperille kaikki pituuden 3 merkkijonot merkeistä A,B,C ja kaikki pituuden 3 palindromit merkeistä A,B,C.
+		</p>
+		<h2>Esimerkki 1</h2>
+
+		<p>Seuraava koodi testaa metodia:</p>
+
+		{% highlight java %}
+palindromit(3,3)
+		{% endhighlight %}
+
+		<p>Koodin tulostuksen tulisi olla seuraava:</p>
+
+		{% highlight text %}
+AAA
+ABA
+ACA
+BAB
+BBB
+BCB
+CAC
+CBC
+CCC
+		{% endhighlight %}
+
+		<h2>Esimerkki 2</h2>
+
+		<p>Seuraava koodi testaa metodia:</p>
+
+		{% highlight java %}
+palindromit(2,4)
+		{% endhighlight %}
+
+		<p>Koodin tulostuksen tulisi olla seuraava:</p>
+		
+		{% highlight text %}
+AAAA
+ABBA
+BAAB
+BBBB
+		{% endhighlight %}
+
+	</div>
+</div>
+<div class="exercise" id="t2">
+
+	<header>
+		<h1>Tehtävä 2</h1>
+	</header>
+
+	<div>
+
+		<h2>Toteutus</h2>
+
+		<p>
+			Toteuta metodi:
+			<code>int evaluoi(String lauseke)</code>, joka laskee käyttäjän antaman laskutoimituksen. Laskutoimitus voi sisältää kokonaislukuja väliltä 0...1000, operaatioita + ja * sekä sulkuja. Voit olettaa, että laskutoimituksen jokainen välivaihe mahtuu int-muuttujaan.
+		</p>
+
+		<p>
+			Ohjelmasi voi olettaa, että laskutoimituksen muoto on oikea (eli ohjelman ei tarvitse sisältää virheenkäsittelyä). Laskutoimitus muodostuu merkeistä 0–9, +, *, ( ja ), eikä siinä ole ylimääräisiä välilyöntejä.
+		</p>
+
+		<p><em>Vihje!</em> Yksi algoritmi tehtävän ratkaisuun tunnetaan nimellä "shunting yard". Saattaa olla kuitenkin hauskempaa keksiä itse sopiva algoritmi!</p>
+
+		<h2>Esimerkit</h2>
+
+		<h3>Esimerkki 1</h3>
+
+		<div class="highlight">
+			<pre><code class="language-text" data-lang="text">Anna laskutoimitus: <span class="user-input">2+5*3</span>
+Tulos: 17</code></pre>
+		</div>
+
+		<h3>Esimerkki 2</h3>
+
+		<div class="highlight">
+			<pre><code class="language-text" data-lang="text">Anna laskutoimitus: <span class="user-input">(1+1)*5</span>
+Tulos: 10</code></pre>
+		</div>
+
+		<h3>Esimerkki 3</h3>
+
+		<div class="highlight">
+			<pre><code class="language-text" data-lang="text">Anna laskutoimitus: <span class="user-input">2*(3*(5+2)+1)</span>
+Tulos: 44</code></pre>
+		</div>
+
+		<h3>Esimerkki 4</h3>
+
+		<div class="highlight">
+			<pre><code class="language-text" data-lang="text">Anna laskutoimitus: <span class="user-input">100*10*10</span>
+Tulos: 10000</code></pre>
+		</div>
+	</div>
+</div>
+<div class="exercise" id="t3">
+
+	<header>
+		<h1>Tehtävä 3</h1>
+	</header>
+
+	<div>
+
+		<h2>Toteutus</h2>
+		<p>
+			Tee metodi void <code>ratkaise(int[][] sudoku)</code>, joka ratkaisee annetun sudokun. Sudoku annetaan kaksiulotteisena int-taulukkona. Taulukossa 0 tarkoittaa tyhjää paikkaa ja numerot 1-9 tarkoittavat numeroita 1-9. Metodin pitäisi muokata annettua taulukkoa niin että se on oikein täytetty sudoku, eli:
+		</p>
+
+		<ul>
+			<li>
+				Yksikään taulukon paikka ei ole 0.
+			</li>
+			<li>
+				Taulukon jokaisella rivillä esiintyvät luvut 1-9, jokainen tasan kerran.
+			</li>
+			<li>
+				Taulukon jokaisessa sarakkeessa esiintyvät luvut 1-9, jokainen tasan kerran.
+			</li>
+			<li>
+				Kun taulukko jaetaan yhdeksään 3x3 neliöön, jokaisessa neliössä esiintyvät luvut 1-9, jokainentasan kerran.
+			</li>
+		</ul>
+
+		<p>Voit olettaa, että metodille annettuun sudokuun on olemassa yksikäsitteinen ratkaisu.</p>
+
+		<p>
+			Suomalainen Arto Inkala on laatinut "maailman vaikeimman Sudokun": 
+			<a href="http://www.telegraph.co.uk/news/science/science-news/9359579/Worlds-hardest-sudoku-can-you-crack-it.html" target="_blank">Maths whiz creates hardest Sudoku yet (The Sun)</a>
+		</p>
+
+		<p>
+			Tee ohjelmastasi sellainen, että se ratkaisee kyseisen sudokun (ja muutkin löytämäsi sudokut) silmänräpäyksessä.
+		</p>
+		
+		<p>
+			<em>Vihje!</em>
+			Luentokalvojen kuningattaret shakkilaudalla -esimerkki.
+		</p>
+
+		<h2>Esimerkit</h2>
+
+		<h3>Helppo sudoku</h3>
+
+		<p>(Tämän pitäisi ratketa hyvin nopeasti)</p>
+		<div class="highlight">
+			<pre><code class="language-text" data-lang="text">Anna sudoku: <span class="user-input">
+8??93???2
+??9????4?
+7?21??96?
+2??????9?
+?6?????7?
+?7???6??5
+?27??84?6
+?3????5??
+5???62??8
+</span>
+Ratkaisu:
+846937152
+319625847
+752184963
+285713694
+463859271
+971246385
+127598436
+638471529
+594362718</code></pre>
+		</div>
+
+		<h3>"Maailman vaikein" sudoku</h3>
+		<div class="highlight">
+			<pre><code class="language-text" data-lang="text">Anna sudoku: <span class="user-input">
+??53?????
+8??????2?
+?7??1?5??
+4????53??
+?1??7???6
+??32???8?
+?6?5????9
+??4????3?
+?????97??
+</span>
+Ratkaisu:
+145327698
+839654127
+672918543
+496185372
+218473956
+753296481
+367542819
+984761235
+521839764</code></pre>
+		</div>
+
+		<h3>Toinen vaikea sudoku</h3>
+		<div class="highlight">
+			<pre><code class="language-text" data-lang="text">Anna sudoku: <span class="user-input">
+?????????
+?????3?85
+??1?2????
+???5?7???
+??4???1??
+?9???????
+5??????7?
+??2?1????
+????4???9
+</span>
+Ratkaisu:
+237658914
+469173285
+851924367
+123567498
+784239156
+695481732
+546392871
+972815643
+318746529</code></pre>
+		</div>
+	</div>
+</div>
+<div class="exercise" id="t4">
+
+	<header>
+		<h1>Tehtävä 4</h1>
+	</header>
+
+	<div>
+
+		<p>
+			Asunnonvälitystoimisto toimii seuraavasti: kullekin henkilölle määritellään jonoon liittyessä kiireellisyysarvo. Asunnon vapautuessa sen saa henkilö, jonka kiireellisyysarvo on suurin. Jos monella henkilöllä on yhtä suuri kiireellisyysarvo, asunnon saa aakkosissa ensimmäinen henkilö. Jos monella henkilöllä on sama nimi, kuka tahansa heistä voi saada asunnon.
+		</p>
+
+		<h2>Toteutus</h2>
+
+		<p>
+			Toteuta luokka <code>Toimisto</code>, joka tarjoaa seuraavat metodit:
+		</p>
+
+		<ul>
+			<li>
+				<code>void lisaaJonoon(String nimi, int kiire)</code><br>
+				lisää henkilön nimeltä nimi jonoon kiireellisyysarvolla kiire
+			</li>
+			<li>
+				<code>String annaAsunto()</code><br>
+				palauttaa henkilön nimen, joka saa vapautuvan asunnon
+			</li>
+		</ul>
+
+		<p>
+			Jokainen nimi muodostuu kirjaimista a..z. Nimen ensimmäinen kirjain on iso ja kaikki muut pieniä. Nimen pituus on enintään 10 kirjainta.
+		</p>
+
+		<p>
+			Kiireellisyysarvo on kokonaisluku välillä 1..10<sup>9</sup>. Mitä suurempi luku on, sitä kiireellisempi henkilön tilanne on.
+		</p>
+
+		<p>
+			Testauksessa metodeita kutsutaan enintään 10<sup>5</sup> kertaa.
+		</p>
+
+		<h2>Esimerkit</h2>
+
+		<p>Seuraava koodi testaa luokkaa:</p>
+		{% highlight java %}
+Toimisto t = new Toimisto();
+t.lisaaJonoon("Uolevi", 8);
+t.lisaaJonoon("Maija", 4);
+System.out.println(t.annaAsunto());
+t.lisaaJonoon("Liisa", 5);
+System.out.println(t.annaAsunto());
+System.out.println(t.annaAsunto());
+		{% endhighlight %}
+		<p>Koodin tulostuksen tulisi olla seuraava:</p>
+		{% highlight text %}
+Uolevi
+Liisa
+Maija
+		{% endhighlight %}
+		
+	</div>
+</div>
+<div class="exercise" id="t5">
+
+	<header>
+		<h1>Tehtävä 5</h1>
+	</header>
+
+	<div>
+		<p>
+			Tämä tehtävä käsittelee lukuja, jotka saadaan kertomalla lukuja 2 ja 3. Ensimmäiset tällaiset luvut ovat:
+		</p>
+
+		<ul class="compact">
+			<li>2</li>
+			<li>3</li>
+			<li>4 = 2·2</li>
+			<li>6 = 2·3</li>
+			<li>8 = 2·2·2</li>
+			<li>9 = 3·3</li>
+			<li>12 = 2·2·3</li>
+		</ul>
+
+		<p>
+			Tehtäväsi on selvittää järjestyksessä <em>n.</em> tällainen luku.
+		</p>
+
+		<h2>Toteutus</h2>
+
+		<p>
+			Toteuta metodi:
+			<code>long etsiTulo(int n)</code>
+		</p>
+
+		<p>
+			Parametri <code>n</code> määrittää, monesko luku metodin tulee palauttaa. Kaikissa testeissä <code>n</code> on välillä 1..1000 ja vastaus mahtuu <em>long</em>-muuttujaan.
+		</p>
+
+		<h2>Esimerkit</h2>
+
+		<table>
+			<thead>
+				<tr>
+					<th>#</th>
+					<th>metodin kutsu</th>
+					<th>haluttu palautusarvo</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>1</td>
+					<td>etsiTulo(2)</td>
+					<td>3</td>
+				</tr>
+				<tr>
+					<td>2</td>
+					<td>etsiTulo(20)</td>
+					<td>108</td>
+				</tr>
+				<tr>
+					<td>3</td>
+					<td>etsiTulo(49)</td>
+					<td>2304</td>
+				</tr>
+				<tr>
+					<td>4</td>
+					<td>etsiTulo(200)</td>
+					<td>15925248</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+<div class="exercise" id="t6">
+
+	<header>
+		<h1>Tehtävä 6</h1>
+	</header>
+
+	<div>
+
+		<p>
+			Tehtäväsi on toteuttaa luokka, joka tarjoaa kaksi toimintoa: uuden luvun lisääminen sekä mediaanin laskeminen kaikista lisätyistä luvuista.
+		</p>
+
+		<p>
+			Mediaani tarkoittaa lukua, joka on keskimmäisenä, jos kaikki luvut järjestetään pienimmästä suurimpaan.
+		</p>
+
+		<p>
+			Jos lukujen määrä on parillinen, mediaani ei ole yksikäsitteinen. Tässä tehtävässä tulkintana on, että mediaani on silloin vasemmanpuoleinen luku kahdesta keskimmäisestä.
+		</p>
+
+		<h2>Toteutus</h2>
+
+		<p>
+			Toteuta luokka
+			<code>Mediaani</code>,
+			joka tarjoaa seuraavat metodit:
+		</p>
+
+		<ul>
+			<li>
+				<code>void lisaaLuku(int luku)</code><br>
+				lisää uuden luvun (kokonaisluku väliltä 1..10<sup>9</sup>)
+			</li>
+			<li>
+				<code>int mediaani()</code><br>
+				palauttaa mediaanin lisätyistä luvuista
+			</li>
+		</ul>
+
+		<p>Testauksessa metodeita kutsutaan enintään 10<sup>5</sup> kertaa.</p>
+
+		<h2>Esimerkit</h2>
+
+		<p>Seuraava koodi testaa luokkaa:</p>
+		{% highlight java %}
+Mediaani m = new Mediaani();
+m.lisaaLuku(1);
+System.out.println(m.mediaani());
+m.lisaaLuku(5);
+m.lisaaLuku(4);
+System.out.println(m.mediaani());
+		{% endhighlight %}
+		<p>Koodin tulostuksen tulisi olla seuraava:</p>
+		{% highlight text %}
+1
+4
+		{% endhighlight %}
+	</div>
+</div>

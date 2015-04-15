@@ -1,0 +1,363 @@
+---
+layout: material
+title: Viikko 7
+---
+<p>
+	Viikon teemana on tasapainotetun binäärihakupuun soveltaminen. <b>Huomaathan, että Javan valmiita toteutuksia tietorakenteista SAA käyttää</b> 
+	.
+</p>
+
+<div class="exercise" id="t1">
+
+	<header>
+		<h1>Tehtävä 1</h1>
+	</header>
+
+	<div>
+
+		<p>
+			Uolevi on alkanut keräillä sarjakuvia ja ostaa usein uusia lehtiä kokoelmaansa. Mutta joskus Uolevi ostaa vahingossa uudestaan sellaisen numeron, joka hänellä on jo valmiina. Tehtäväsi on auttaa Uolevia laskemaan, montako eri numeroa hänen kokoelmassaan on.
+		</p>
+
+		<h2>Toteutus</h2>
+
+		<p>Toteuta luokka Kokoelma, joka tarjoaa seuraavat metodit:</p>
+		<ul>
+			<li>
+				<code>void lisaaLehti(int numero)</code>
+				<br>
+				Uolevi ostaa lehden, jonka numero on numero (kokonaisluku väliltä 1..10<sup>9</sup>
+				)
+			</li>
+			<li>
+				<code>int eriNumerot()</code>
+				<br>
+				kertoo, montako eri lehteä Uolevin kokoelmassa on tällä hetkellä
+			</li>
+		</ul>
+
+		<p>Aluksi Uolevin kokoelmassa ei ole yhtään lehteä.</p>
+
+		<p>
+			Testauksessa metodeita kutsutaan yhteensä enintään 10<sup>5</sup>
+			kertaa.
+		</p>
+
+		<h2>Esimerkit</h2>
+
+		<p>Seuraava koodi testaa luokkaa:</p>
+		{% highlight java %}
+Kokoelma k = new Kokoelma();
+k.lisaaLehti(3);
+k.lisaaLehti(4);
+k.lisaaLehti(3);
+System.out.println(k.eriNumerot());
+k.lisaaLehti(5);
+System.out.println(k.eriNumerot());
+k.lisaaLehti(3);
+System.out.println(k.eriNumerot());
+		{% endhighlight %}
+		<p>Koodin tulostuksen tulisi olla seuraava:</p>
+		{% highlight text %}
+2
+3
+3
+		{% endhighlight %}
+	</div>
+</div>
+<div class="exercise" id="t2">
+
+	<header>
+		<h1>Tehtävä 2</h1>
+	</header>
+
+	<div>
+
+		<p>
+			Joskus Uolevi haluaisi lukea lehden numeron, joka puuttuu hänen kokoelmastaan. Silloin hän valitsee lehden, jonka numero on mahdollisimman lähellä haluttua numeroa. Tehtäväsi on auttaa Uolevia lehden valinnassa.
+		</p>
+
+		<h2>Toteutus</h2>
+		<p>Toteuta luokka Kokoelma, joka tarjoaa seuraavat metodit:</p>
+		<ul>
+			<li>
+				<code>void lisaaLehti(int numero)</code>
+				<br>
+				Uolevi ostaa lehden, jonka numero on numero (kokonaisluku väliltä 1..10
+				<sup>9</sup>
+				)
+			</li>
+			<li>
+				<code>int valitseLehti(int numero)</code>
+				<br>
+				palauttaa Uolevin kokoelmassa olevan lehden, jonka numero on mahdollisimman lähellä parametria numero (kokonaisluku väliltä 1..10
+				<sup>9</sup>
+				)
+			</li>
+		</ul>
+
+		<p>Aluksi Uolevin kokoelmassa ei ole yhtään lehteä.</p>
+
+		<p>
+			Testauksessa metodeita kutsutaan yhteensä enintään 10
+			<sup>5</sup>
+			kertaa. Metodia valitseLehti ei kutsuta ennen kuin lehtiä on ainakin yksi. Jos vaihtoehtoja on kaksi, valitse niistä pienempi.
+		</p>
+		<h2>Esimerkit</h2>
+
+		<p>Seuraava koodi testaa luokkaa:</p>
+		{% highlight java %}
+Kokoelma k = new Kokoelma();
+k.lisaaLehti(3);
+System.out.println(k.valitseLehti(4));
+System.out.println(k.valitseLehti(8));
+k.lisaaLehti(9);
+System.out.println(k.valitseLehti(4));
+System.out.println(k.valitseLehti(8));
+		{% endhighlight %}
+		<p>Koodin tulostuksen tulisi olla seuraava:</p>
+		{% highlight text %}
+3
+3
+3
+9
+		{% endhighlight %}
+	</div>
+</div>
+<div class="exercise" id="t3">
+
+	<header>
+		<h1>Tehtävä 3</h1>
+	</header>
+
+	<div>
+
+		<p>
+			Aiemmin julkaistut lehdet ovat Uolevin mielestä parhaita, minkä vuoksi hän haluaisi saada kokoelmansa täydelliseksi ainakin niiden osalta. Auta Uolevia selvittämään, mikä on pienin kokoelmasta puuttuva numero.
+		</p>
+
+		<h2>Toteutus</h2>
+		<p>Toteuta luokka Kokoelma, joka tarjoaa seuraavat metodit:</p>
+		<ul>
+			<li>
+				<code>void lisaaLehti(int numero)</code>
+				<br>
+				Uolevi ostaa lehden, jonka numero on numero (kokonaisluku väliltä 1..10
+				<sup>9</sup>
+				)
+			</li>
+			<li>
+				<code>int pieninPuuttuva()</code>
+				<br>
+				palauttaa pienimmän lehden numeron, joka puuttuu vielä Uolevin kokoelmasta
+			</li>
+		</ul>
+
+		<p>Aluksi Uolevin kokoelmassa ei ole yhtään lehteä.</p>
+
+		<p>
+			Testauksessa metodeita kutsutaan yhteensä enintään 10
+			<sup>5</sup>
+			kertaa.
+		</p>
+
+		<h2>Esimerkit</h2>
+
+		<p>Seuraava koodi testaa luokkaa:</p>
+		{% highlight java %}
+Kokoelma k = new Kokoelma();
+System.out.println(k.pieninPuuttuva());
+k.lisaaLehti(3);
+System.out.println(k.pieninPuuttuva());
+k.lisaaLehti(2);
+System.out.println(k.pieninPuuttuva());
+k.lisaaLehti(1);
+System.out.println(k.pieninPuuttuva());
+		{% endhighlight %}
+		<p>Koodin tulostuksen tulisi olla seuraava:</p>
+		{% highlight text %}
+1
+1
+1
+4
+		{% endhighlight %}
+	</div>
+</div>
+<div class="exercise" id="t4">
+
+	<header>
+		<h1>Tehtävä 4</h1>
+	</header>
+
+	<div>
+
+		<p>
+			Maahan on pudonnut omenoita, ja tehtäväsi on kerätä ne koreihin. Tiedät jokaisesta omenasta, kuinka painava se on. Voit laittaa jokaiseen koriin 1 tai 2 omenaa. Lisäksi omenoiden paino korissa ei saa ylittää annettua rajaa. Kuinka monta koria tarvitset vähintään?
+		</p>
+
+		<p>
+			Esimerkiksi jos omenoiden painot ovat {1, 2, 3, 4, 5} ja korin painoraja on 5, tarvitset 3 koria: {1, 4}, {2, 3} ja {5}.
+		</p>
+
+		<h2>Toteutus</h2>
+
+		<p>
+			Toteuta metodi:
+			<code>int korienMaara(int[] omenat, int raja)</code>
+		</p>
+
+		<p>
+			Taulukko
+			<code>omenat</code>
+			sisältää omenoiden painot. Omenoiden määrä on välillä 1..10
+			<sup>5</sup>
+			ja jokainen paino on välillä 1..10
+			<sup>9</sup>
+			.
+		</p>
+
+		<p>
+			Parametri
+			<code>raja</code>
+			on suurin sallittu korin omenoiden paino. Raja on välillä 1..10
+			<sup>9</sup>
+			, ja minkään omenan paino ei ole tätä suurempi.
+		</p>
+
+		<p>Metodin tulee palauttaa pienin mahdollinen korien määrä.</p>
+
+		<h2>Esimerkit</h2>
+
+		<table>
+			<tbody>
+				<tr>
+					<th>#</th>
+					<th>metodin kutsu</th>
+					<th>haluttu palautusarvo</th>
+				</tr>
+				<tr>
+					<td>1</td>
+					<td>
+						<code>korienMaara(new int[] {1, 2, 3, 4, 5}, 5)</code>
+					</td>
+					<td>
+						<code>3</code>
+					</td>
+				</tr>
+				<tr>
+					<td>2</td>
+					<td>
+						<code>korienMaara(new int[] {2, 2, 3, 4, 5}, 5)</code>
+					</td>
+					<td>
+						<code>4</code>
+					</td>
+				</tr>
+				<tr>
+					<td>3</td>
+					<td>
+						<code>korienMaara(new int[] {1, 1, 1, 1, 1}, 5)</code>
+					</td>
+					<td>
+						<code>3</code>
+					</td>
+				</tr>
+				<tr>
+					<td>4</td>
+					<td>
+						<code>korienMaara(new int[] {3, 3, 3, 3, 3}, 5)</code>
+					</td>
+					<td>
+						<code>5</code>
+					</td>
+				</tr>
+				<tr>
+					<td>5</td>
+					<td>
+						<code>korienMaara(new int[] {5, 5, 5, 5, 5}, 5)</code>
+					</td>
+					<td>
+						<code>5</code>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+<div class="exercise" id="t5">
+
+	<header>
+		<h1>Tehtävä 5</h1>
+	</header>
+
+	<div>
+
+		<p>
+			Sinulle on annettu merkkijono, joka muodostuu merkeistä A ja B. Tehtäväsi on selvittää, mikä on pisin samaa merkkiä toistava osa merkkijonossa.
+		</p>
+
+		<p>
+			Tämä on vielä helppoa, mutta lisähaasteena on, että merkkijonon merkkejä pystyy muuttamaan ja sinun täytyy pystyä etsimään pisin samaa merkkiä toistava osa tehokkaasti joka muutoksen jälkeen.
+		</p>
+
+		<h2>Toteutus</h2>
+
+		<p>
+			Toteuta luokka
+			<code>PisinToisto</code>
+			, joka tarjoaa seuraavat metodit:
+		</p>
+
+		<ul>
+			<li>
+				<code>PisinToisto(String mjono)</code>
+				<br>		
+				konstruktori, jolle annetaan merkkijonon alkusisältö
+				<code>mjono</code>
+				(1..10<sup>5</sup>
+				merkkiä, jokainen merkki A tai B)
+			</li>
+			<li>
+				<code>void muutaMerkki(int kohta)</code>
+				<br>		
+				muuttaa kohdassa
+				<code>kohta</code>
+				olevan merkin käänteiseksi (A:sta tulee B ja B:stä tulee A)
+			</li>
+			<li>
+				<code>int pisinToisto()</code>
+				<br>		
+				palauttaa pisimmän toiston pituuden tämänhetkisessä merkkijonossa
+			</li>
+		</ul>
+
+		<p>
+			Metodeita <code>muutaMerkki</code> ja <code>pisinToisto</code> kutsutaan korkeintaan 10<sup>5</sup> kertaa testauksessa.
+		</p>
+
+		<h2>Esimerkit</h2>
+
+		<p>Seuraava koodi testaa luokkaa:</p>
+		{% highlight java %}
+PisinToisto etsija = new PisinToisto("AABBBA");
+System.out.println(etsija.pisinToisto());
+etsija.muutaMerkki(3); // AABABA
+System.out.println(etsija.pisinToisto());
+etsija.muutaMerkki(0); // BABABA
+System.out.println(etsija.pisinToisto());
+etsija.muutaMerkki(2); // BAAABA
+System.out.println(etsija.pisinToisto());
+etsija.muutaMerkki(4); // BAAAAA
+System.out.println(etsija.pisinToisto());
+		{% endhighlight %}
+		<p>Koodin tulostuksen tulisi olla seuraava:</p>
+		{% highlight text %}
+3
+2
+1
+3
+5
+		{% endhighlight %}
+		
+	</div>
+</div>
